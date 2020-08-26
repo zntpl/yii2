@@ -1,0 +1,818 @@
+<!DOCTYPE HTML><html><head><title>Demo Yii template API documentation</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="generator" content="https://github.com/raml2html/raml2html 7.6.0"><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"><script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script><script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script><script type="text/javascript">
+      $(document).ready(function() {
+  $('.page-header pre code, .top-resource-description pre code, .modal-body pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+  $('[data-toggle]').click(function() {
+    var selector = $(this).data('target') + ' pre code';
+    $(selector).each(function(i, block) {
+      hljs.highlightBlock(block);
+    });
+  });
+
+  // open modal on hashes like #_action_get
+  $(window).bind('hashchange', function(e) {
+    var anchor_id = document.location.hash.substr(1); //strip #
+    var element = $('#' + anchor_id);
+
+    // do we have such element + is it a modal?  --> show it
+    if (element.length && element.hasClass('modal')) {
+      element.modal('show');
+    }
+  });
+
+  // execute hashchange on first page load
+  $(window).trigger('hashchange');
+
+  // remove url fragment on modal hide
+  $('.modal').on('hidden.bs.modal', function() {
+    try {
+      if (history && history.replaceState) {
+          history.replaceState({}, '', '#');
+      }
+    } catch(e) {}
+  });
+});
+    </script><style>
+      .hljs {
+  background: transparent;
+}
+.parent {
+  color: #999;
+}
+.list-group-item > .badge {
+  float: none;
+  margin-right: 6px;
+}
+.panel-title > .methods {
+  float: right;
+}
+.badge {
+  border-radius: 0;
+  text-transform: uppercase;
+  width: 70px;
+  font-weight: normal;
+  color: #f3f3f6;
+  line-height: normal;
+}
+.badge_get {
+  background-color: #63a8e2;
+}
+.badge_post {
+  background-color: #6cbd7d;
+}
+.badge_put {
+  background-color: #22bac4;
+}
+.badge_delete {
+  background-color: #d26460;
+}
+.badge_patch {
+  background-color: #ccc444;
+}
+.list-group,
+.panel-group {
+  margin-bottom: 0;
+}
+.panel-group .panel+.panel-white {
+  margin-top: 0;
+}
+.panel-group .panel-white {
+  border-bottom: 1px solid #F5F5F5;
+  border-radius: 0;
+}
+.panel-white:last-child {
+  border-bottom-color: white;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.panel-white .panel-heading {
+  background: white;
+}
+.tab-pane ul {
+  padding-left: 2em;
+}
+.tab-pane h1 {
+  font-size: 1.3em;
+}
+.tab-pane h2 {
+  font-size: 1.2em;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #ddd;
+}
+.tab-pane h3 {
+  font-size: 1.1em;
+}
+.tab-content {
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+}
+#sidebar {
+  margin-top: 30px;
+  padding-right: 5px;
+  overflow: auto;
+  height: 90%;
+}
+.top-resource-description {
+  border-bottom: 1px solid #ddd;
+  background: #fcfcfc;
+  padding: 15px 15px 0 15px;
+  margin: -15px -15px 10px -15px;
+}
+.resource-description {
+  border-bottom: 1px solid #fcfcfc;
+  background: #fcfcfc;
+  padding: 15px 15px 0 15px;
+  margin: -15px -15px 10px -15px;
+}
+.resource-description p:last-child {
+  margin: 0;
+}
+.list-group .badge {
+  float: left;
+}
+.method_description {
+  margin-left: 85px;
+}
+.method_description p:last-child {
+  margin: 0;
+}
+.list-group-item {
+  cursor: pointer;
+}
+.list-group-item:hover {
+  background-color: #f5f5f5;
+}
+pre code {
+  overflow: auto;
+  word-wrap: normal;
+  white-space: pre;
+}
+.items {
+  background: #f5f5f5;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.42857143;
+}
+.examples {
+  margin-left: 0.5em;
+}
+.resource-modal li > ul {
+  margin-bottom: 1em;
+}
+.required {
+  color: #f00;
+}
+    </style></head><body data-spy="scroll" data-target="#sidebar"><div class="container"><div class="row"><div class="col-md-9" role="main"><div class="page-header"><h1>Demo Yii template API documentation <small>version v1</small></h1><p>http://api.example.com/api/v1</p><h3><a href="#">Введение</a></h3><p>API основано на контрактах - <a href="https://github.com/zndoc/rest-api/blob/master/docs/contract/README.md">https://github.com/zndoc/rest-api/blob/master/docs/contract/README.md</a></p></div><div class="panel panel-default"><div class="panel-heading"><h3 id="auth" class="panel-title">/auth</h3></div><div class="panel-body"><div class="top-resource-description"><p>Аутентификация</p></div><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_auth"><span class="parent"></span>/auth</a> <span class="methods"><a href="#auth_post"><span class="badge badge_post">post</span></a> <a href="#auth_get"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_auth" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#auth_post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>Получение токена</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#auth_get'" class="list-group-item"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Получение информации текущего пользователя</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="auth_post"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent"></span>/auth</h4></div><div class="modal-body"><div class="alert alert-info"><p>Получение токена</p></div><ul class="nav nav-tabs"><li class="active"><a href="#auth_post_request" data-toggle="tab">Request</a></li><li><a href="#auth_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="auth_post_request"><h3>Headers</h3><ul><li><strong>Language</strong>: <em>(string - default: ru)</em><p>Язык</p></li><li><strong>Time-Zone</strong>: <em>(string - default: UTC)</em><p>Часовой пояс</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>Asia/Almaty</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+  "login": "77771111111",
+  "password": "Wwwqqq111"
+}
+</code></pre></div></div><div class="tab-pane" id="auth_post_response"><h2>HTTP status code <a href="http://httpstatus.es/204" target="_blank">204</a></h2><p>Запрос обработан успешно, и в ответе нет содержимого</p><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>Токен</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImM4NGQyYTU0LTgyY2ItNGY5Ny1hYjJhLWE5MmFmNjM2ZmY1OCJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkueXVuZXdzLnByb2plY3RcL3YxXC9hdXRoIiwic3ViamVjdCI6eyJpZCI6MTQ2fSwiYXVkIjpbImh0dHA6XC9cL2FwaS55dW5ld3MucHJvamVjdCJdLCJleHAiOjE1NDU4MzAwNjV9.iGOF9CzAUH2ZEoZzw__JkdGrWO0kH9zTh-HzP9hxrfk</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><p>Неверный запрос. Может быть связано с разнообразными проблемами на стороне пользователя, такими как неверные JSON-данные в теле запроса, неправильные параметры действия, и т.д.</p><h2>HTTP status code <a href="http://httpstatus.es/422" target="_blank">422</a></h2><p>Проверка данных завершилась неудачно. Подробные сообщения об ошибках смотрите в теле ответа.</p><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>[
+  {
+	"field": "amount",
+	"message": "Поле должно быть числом"
+  },
+  {
+	"field": "description",
+	"message": "Поле не может быть пустым"
+   }
+]</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/500" target="_blank">500</a></h2><p>Внутренняя ошибка сервера. Возможная причина — ошибки в самой программе</p></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="auth_get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent"></span>/auth</h4></div><div class="modal-body"><div class="alert alert-info"><p>Получение информации текущего пользователя</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>bearerAuth</b></div><ul class="nav nav-tabs"><li class="active"><a href="#auth_get_request" data-toggle="tab">Request</a></li><li><a href="#auth_get_response" data-toggle="tab">Response</a></li><li><a href="#auth_get_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="auth_get_request"><h3>Headers</h3><ul><li><strong>Language</strong>: <em>(string - default: ru)</em><p>Язык</p></li><li><strong>Time-Zone</strong>: <em>(string - default: UTC)</em><p>Часовой пояс</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>Asia/Almaty</code></pre></div></li></ul></div><div class="tab-pane" id="auth_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>OK. Все сработало именно так, как и ожидалось.</p><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+	"person_id": 155,
+	"person": null,
+	"id": 146,
+	"login": "vasilev",
+	"status": null,
+	"roles": null,
+	"assignments": null,
+	"token": null,
+	"email": null,
+	"created_at": "2018-12-20T10:55:42Z"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/304" target="_blank">304</a></h2><p>Ресурс не изменялся. Можно использовать закэшированную версию.</p><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Запрошенный ресурс не существует.</p><h2>HTTP status code <a href="http://httpstatus.es/500" target="_blank">500</a></h2><p>Внутренняя ошибка сервера. Возможная причина — ошибки в самой программе</p></div><div class="tab-pane" id="auth_get_securedby"><h1>Secured by bearerAuth</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>JWT-токен</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImM4NGQyYTU0LTgyY2ItNGY5Ny1hYjJhLWE5MmFmNjM2ZmY1OCJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkueXVuZXdzLnByb2plY3RcL3YxXC9hdXRoIiwic3ViamVjdCI6eyJpZCI6MTQ2fSwiYXVkIjpbImh0dHA6XC9cL2FwaS55dW5ld3MucHJvamVjdCJdLCJleHAiOjE1NDU4MzAwNjV9.iGOF9CzAUH2ZEoZzw__JkdGrWO0kH9zTh-HzP9hxrfk</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Аутентификация завершилась неудачно.</p><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><p>Аутентифицированному пользователю не разрешен доступ к указанной точке входа API</p></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="registration" class="panel-title">/registration</h3></div><div class="panel-body"><div class="top-resource-description"><p>Регистрация пользователя</p></div><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_registration_request_activation_code"><span class="parent">/registration</span>/request-activation-code</a> <span class="methods"><a href="#registration_request_activation_code_post"><span class="badge badge_post">post</span></a></span></h4></div><div id="panel_registration_request_activation_code" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#registration_request_activation_code_post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>Запрос кода активации</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="registration_request_activation_code_post"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent">/registration</span>/request-activation-code</h4></div><div class="modal-body"><div class="alert alert-info"><p>Запрос кода активации</p></div><ul class="nav nav-tabs"><li class="active"><a href="#registration_request_activation_code_post_request" data-toggle="tab">Request</a></li><li><a href="#registration_request_activation_code_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="registration_request_activation_code_post_request"><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+	"phone": "77771111111"
+}</code></pre></div></div><div class="tab-pane" id="registration_request_activation_code_post_response"><h2>HTTP status code <a href="http://httpstatus.es/202" target="_blank">202</a></h2><p>СМС-код был отправлен ранее. Повторите попытку через некоторое время.</p></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_registration_verify_activation_code"><span class="parent">/registration</span>/verify-activation-code</a> <span class="methods"><a href="#registration_verify_activation_code_post"><span class="badge badge_post">post</span></a></span></h4></div><div id="panel_registration_verify_activation_code" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#registration_verify_activation_code_post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>Верификация кода активации</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="registration_verify_activation_code_post"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent">/registration</span>/verify-activation-code</h4></div><div class="modal-body"><div class="alert alert-info"><p>Верификация кода активации</p></div><ul class="nav nav-tabs"><li class="active"><a href="#registration_verify_activation_code_post_request" data-toggle="tab">Request</a></li><li><a href="#registration_verify_activation_code_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="registration_verify_activation_code_post_request"><h3>Headers</h3><ul><li><strong>Language</strong>: <em>(string - default: ru)</em><p>Язык</p></li><li><strong>Time-Zone</strong>: <em>(string - default: UTC)</em><p>Часовой пояс</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>Asia/Almaty</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+	"phone": "77771111111",
+	"activation_code": "123456"
+}</code></pre></div></div><div class="tab-pane" id="registration_verify_activation_code_post_response"><h2>HTTP status code <a href="http://httpstatus.es/204" target="_blank">204</a></h2><p>Запрос обработан успешно, и в ответе нет содержимого</p><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><p>Неверный запрос. Может быть связано с разнообразными проблемами на стороне пользователя, такими как неверные JSON-данные в теле запроса, неправильные параметры действия, и т.д.</p><h2>HTTP status code <a href="http://httpstatus.es/422" target="_blank">422</a></h2><p>Проверка данных завершилась неудачно. Подробные сообщения об ошибках смотрите в теле ответа.</p><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>[
+  {
+	"field": "amount",
+	"message": "Поле должно быть числом"
+  },
+  {
+	"field": "description",
+	"message": "Поле не может быть пустым"
+   }
+]</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/500" target="_blank">500</a></h2><p>Внутренняя ошибка сервера. Возможная причина — ошибки в самой программе</p></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_registration_create_account"><span class="parent">/registration</span>/create-account</a> <span class="methods"><a href="#registration_create_account_post"><span class="badge badge_post">post</span></a></span></h4></div><div id="panel_registration_create_account" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#registration_create_account_post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>Создание аккаунта</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="registration_create_account_post"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent">/registration</span>/create-account</h4></div><div class="modal-body"><div class="alert alert-info"><p>Создание аккаунта</p></div><ul class="nav nav-tabs"><li class="active"><a href="#registration_create_account_post_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="registration_create_account_post_request"><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+	"phone": "77771111111",
+	"activation_code": "123456",
+	"password": "Wwwqqq111",
+	"login": "login",
+	"first_name": "firstname",
+	"last_name": "lastname",
+	"birthday": "2018-03-20"
+}</code></pre></div></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="security" class="panel-title">/security</h3></div><div class="panel-body"><div class="top-resource-description"><p>Профиль</p></div><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_security_email"><span class="parent">/security</span>/email</a> <span class="methods"><a href="#security_email_put"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_security_email" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#security_email_put'" class="list-group-item"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Изменить почту</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="security_email_put"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/security</span>/email</h4></div><div class="modal-body"><div class="alert alert-info"><p>Изменить почту</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>bearerAuth</b></div><ul class="nav nav-tabs"><li class="active"><a href="#security_email_put_request" data-toggle="tab">Request</a></li><li><a href="#security_email_put_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="security_email_put_request"><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+  "password": "Wwwqqq111",
+  "email": "janabay@yandex.ru"
+}
+</code></pre></div></div><div class="tab-pane" id="security_email_put_securedby"><h1>Secured by bearerAuth</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>JWT-токен</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImM4NGQyYTU0LTgyY2ItNGY5Ny1hYjJhLWE5MmFmNjM2ZmY1OCJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkueXVuZXdzLnByb2plY3RcL3YxXC9hdXRoIiwic3ViamVjdCI6eyJpZCI6MTQ2fSwiYXVkIjpbImh0dHA6XC9cL2FwaS55dW5ld3MucHJvamVjdCJdLCJleHAiOjE1NDU4MzAwNjV9.iGOF9CzAUH2ZEoZzw__JkdGrWO0kH9zTh-HzP9hxrfk</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Аутентификация завершилась неудачно.</p><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><p>Аутентифицированному пользователю не разрешен доступ к указанной точке входа API</p></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_security_password"><span class="parent">/security</span>/password</a> <span class="methods"><a href="#security_password_put"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_security_password" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#security_password_put'" class="list-group-item"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Изменить пароль</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="security_password_put"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/security</span>/password</h4></div><div class="modal-body"><div class="alert alert-info"><p>Изменить пароль</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>bearerAuth</b></div><ul class="nav nav-tabs"><li class="active"><a href="#security_password_put_request" data-toggle="tab">Request</a></li><li><a href="#security_password_put_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="security_password_put_request"><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+  "password": "Wwwqqq111",
+  "new_password": "qwerty123"
+}
+</code></pre></div></div><div class="tab-pane" id="security_password_put_securedby"><h1>Secured by bearerAuth</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>JWT-токен</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImM4NGQyYTU0LTgyY2ItNGY5Ny1hYjJhLWE5MmFmNjM2ZmY1OCJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkueXVuZXdzLnByb2plY3RcL3YxXC9hdXRoIiwic3ViamVjdCI6eyJpZCI6MTQ2fSwiYXVkIjpbImh0dHA6XC9cL2FwaS55dW5ld3MucHJvamVjdCJdLCJleHAiOjE1NDU4MzAwNjV9.iGOF9CzAUH2ZEoZzw__JkdGrWO0kH9zTh-HzP9hxrfk</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Аутентификация завершилась неудачно.</p><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><p>Аутентифицированному пользователю не разрешен доступ к указанной точке входа API</p></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="notify_test" class="panel-title">/notify-test</h3></div><div class="panel-body"><div class="top-resource-description"><p>Уведомления для тестировщиков</p></div><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_notify_test"><span class="parent"></span>/notify-test</a> <span class="methods"><a href="#notify_test_get"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a> <a href="#notify_test_delete"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_notify_test" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#notify_test_get'" class="list-group-item"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Получить список уведомлений</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#notify_test_delete'" class="list-group-item"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Очистить уведомления</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="notify_test_get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent"></span>/notify-test</h4></div><div class="modal-body"><div class="alert alert-info"><p>Получить список уведомлений</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>bearerAuth</b></div><ul class="nav nav-tabs"><li class="active"><a href="#notify_test_get_request" data-toggle="tab">Request</a></li><li><a href="#notify_test_get_response" data-toggle="tab">Response</a></li><li><a href="#notify_test_get_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="notify_test_get_request"><h3>Query Parameters</h3><ul><li><strong>type</strong>: <em><span class="required">required</span>(string)</em><p>Тип уведомления (sms, email)</p></li></ul></div><div class="tab-pane" id="notify_test_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>[
+	{
+		"type": "sms",
+		"address": "77991000006",
+		"subject": null,
+		"message": "Код подтверждения: 202649",
+		"created_at": null
+	},
+	{
+		"type": "sms",
+		"address": "77991000007",
+		"subject": null,
+		"message": "Код подтверждения: 643257",
+		"created_at": null
+	}
+]</code></pre></div></div><div class="tab-pane" id="notify_test_get_securedby"><h1>Secured by bearerAuth</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>JWT-токен</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImM4NGQyYTU0LTgyY2ItNGY5Ny1hYjJhLWE5MmFmNjM2ZmY1OCJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkueXVuZXdzLnByb2plY3RcL3YxXC9hdXRoIiwic3ViamVjdCI6eyJpZCI6MTQ2fSwiYXVkIjpbImh0dHA6XC9cL2FwaS55dW5ld3MucHJvamVjdCJdLCJleHAiOjE1NDU4MzAwNjV9.iGOF9CzAUH2ZEoZzw__JkdGrWO0kH9zTh-HzP9hxrfk</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Аутентификация завершилась неудачно.</p><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><p>Аутентифицированному пользователю не разрешен доступ к указанной точке входа API</p></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="notify_test_delete"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent"></span>/notify-test</h4></div><div class="modal-body"><div class="alert alert-info"><p>Очистить уведомления</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>bearerAuth</b></div><ul class="nav nav-tabs"><li><a href="#notify_test_delete_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane" id="notify_test_delete_securedby"><h1>Secured by bearerAuth</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>JWT-токен</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImM4NGQyYTU0LTgyY2ItNGY5Ny1hYjJhLWE5MmFmNjM2ZmY1OCJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkueXVuZXdzLnByb2plY3RcL3YxXC9hdXRoIiwic3ViamVjdCI6eyJpZCI6MTQ2fSwiYXVkIjpbImh0dHA6XC9cL2FwaS55dW5ld3MucHJvamVjdCJdLCJleHAiOjE1NDU4MzAwNjV9.iGOF9CzAUH2ZEoZzw__JkdGrWO0kH9zTh-HzP9hxrfk</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Аутентификация завершилась неудачно.</p><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><p>Аутентифицированному пользователю не разрешен доступ к указанной точке входа API</p></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="file_storage" class="panel-title">/file-storage</h3></div><div class="panel-body"><div class="top-resource-description"><p>Файловое хранилище</p></div><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_file_storage"><span class="parent"></span>/file-storage</a> <span class="methods"><a href="#file_storage_get"><span class="badge badge_get">get</span></a> <a href="#file_storage_post"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_file_storage" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#file_storage_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Получть список файлов</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#file_storage_post'" class="list-group-item"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Загрузить файл на сервер</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="file_storage_get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent"></span>/file-storage</h4></div><div class="modal-body"><div class="alert alert-info"><p>Получть список файлов</p></div><ul class="nav nav-tabs"><li class="active"><a href="#file_storage_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="file_storage_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>[
+
+]</code></pre></div></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="file_storage_post"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent"></span>/file-storage</h4></div><div class="modal-body"><div class="alert alert-info"><p>Загрузить файл на сервер</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>bearerAuth</b></div><ul class="nav nav-tabs"><li class="active"><a href="#file_storage_post_request" data-toggle="tab">Request</a></li><li><a href="#file_storage_post_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="file_storage_post_request"><h3>Body</h3><p><strong>Media type</strong>: multipart/form-data</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>service_id</strong>: <em><span class="required">required</span>(integer)</em><p>ID сервиса</p></li><li><strong>file</strong>: <em><span class="required">required</span>(file)</em><p>Файл для загрузки</p></li></ul></div><div class="tab-pane" id="file_storage_post_securedby"><h1>Secured by bearerAuth</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>JWT-токен</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImM4NGQyYTU0LTgyY2ItNGY5Ny1hYjJhLWE5MmFmNjM2ZmY1OCJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkueXVuZXdzLnByb2plY3RcL3YxXC9hdXRoIiwic3ViamVjdCI6eyJpZCI6MTQ2fSwiYXVkIjpbImh0dHA6XC9cL2FwaS55dW5ld3MucHJvamVjdCJdLCJleHAiOjE1NDU4MzAwNjV9.iGOF9CzAUH2ZEoZzw__JkdGrWO0kH9zTh-HzP9hxrfk</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Аутентификация завершилась неудачно.</p><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><p>Аутентифицированному пользователю не разрешен доступ к указанной точке входа API</p></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_file_storage__id_"><span class="parent">/file-storage</span>/{id}</a> <span class="methods"><a href="#file_storage__id__get"><span class="badge badge_get">get</span></a> <a href="#file_storage__id__put"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a> <a href="#file_storage__id__delete"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_file_storage__id_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#file_storage__id__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Получить файл</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#file_storage__id__put'" class="list-group-item"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Изменить файл</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#file_storage__id__delete'" class="list-group-item"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Удалить файл</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="file_storage__id__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/file-storage</span>/{id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Получить файл</p></div><ul class="nav nav-tabs"><li class="active"><a href="#file_storage__id__get_request" data-toggle="tab">Request</a></li><li><a href="#file_storage__id__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="file_storage__id__get_request"><h3>URI Parameters</h3><ul><li><strong>id</strong>: <em><span class="required">required</span>(integer)</em><p>ID файла</p></li></ul></div><div class="tab-pane" id="file_storage__id__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+
+}</code></pre></div></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="file_storage__id__put"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/file-storage</span>/{id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Изменить файл</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>bearerAuth</b></div><ul class="nav nav-tabs"><li class="active"><a href="#file_storage__id__put_request" data-toggle="tab">Request</a></li><li><a href="#file_storage__id__put_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="file_storage__id__put_request"><h3>URI Parameters</h3><ul><li><strong>id</strong>: <em><span class="required">required</span>(integer)</em><p>ID файла</p></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+
+}</code></pre></div></div><div class="tab-pane" id="file_storage__id__put_securedby"><h1>Secured by bearerAuth</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>JWT-токен</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImM4NGQyYTU0LTgyY2ItNGY5Ny1hYjJhLWE5MmFmNjM2ZmY1OCJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkueXVuZXdzLnByb2plY3RcL3YxXC9hdXRoIiwic3ViamVjdCI6eyJpZCI6MTQ2fSwiYXVkIjpbImh0dHA6XC9cL2FwaS55dW5ld3MucHJvamVjdCJdLCJleHAiOjE1NDU4MzAwNjV9.iGOF9CzAUH2ZEoZzw__JkdGrWO0kH9zTh-HzP9hxrfk</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Аутентификация завершилась неудачно.</p><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><p>Аутентифицированному пользователю не разрешен доступ к указанной точке входа API</p></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="file_storage__id__delete"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/file-storage</span>/{id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Удалить файл</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>bearerAuth</b></div><ul class="nav nav-tabs"><li class="active"><a href="#file_storage__id__delete_request" data-toggle="tab">Request</a></li><li><a href="#file_storage__id__delete_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="file_storage__id__delete_request"><h3>URI Parameters</h3><ul><li><strong>id</strong>: <em><span class="required">required</span>(integer)</em><p>ID файла</p></li></ul></div><div class="tab-pane" id="file_storage__id__delete_securedby"><h1>Secured by bearerAuth</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>JWT-токен</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImM4NGQyYTU0LTgyY2ItNGY5Ny1hYjJhLWE5MmFmNjM2ZmY1OCJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkueXVuZXdzLnByb2plY3RcL3YxXC9hdXRoIiwic3ViamVjdCI6eyJpZCI6MTQ2fSwiYXVkIjpbImh0dHA6XC9cL2FwaS55dW5ld3MucHJvamVjdCJdLCJleHAiOjE1NDU4MzAwNjV9.iGOF9CzAUH2ZEoZzw__JkdGrWO0kH9zTh-HzP9hxrfk</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Аутентификация завершилась неудачно.</p><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><p>Аутентифицированному пользователю не разрешен доступ к указанной точке входа API</p></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="storage_personal" class="panel-title">/storage-personal</h3></div><div class="panel-body"><div class="top-resource-description"><p>Временное хранилище файлов пользователя</p></div><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_storage_personal"><span class="parent"></span>/storage-personal</a> <span class="methods"><a href="#storage_personal_post"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_storage_personal" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#storage_personal_post'" class="list-group-item"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Загрузить файл на сервер</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="storage_personal_post"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent"></span>/storage-personal</h4></div><div class="modal-body"><div class="alert alert-info"><p>Загрузить файл на сервер</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>bearerAuth</b></div><ul class="nav nav-tabs"><li class="active"><a href="#storage_personal_post_request" data-toggle="tab">Request</a></li><li><a href="#storage_personal_post_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="storage_personal_post_request"><h3>Body</h3><p><strong>Media type</strong>: multipart/form-data</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>file</strong>: <em><span class="required">required</span>(file)</em><p>Файл для загрузки</p></li></ul></div><div class="tab-pane" id="storage_personal_post_securedby"><h1>Secured by bearerAuth</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>JWT-токен</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImM4NGQyYTU0LTgyY2ItNGY5Ny1hYjJhLWE5MmFmNjM2ZmY1OCJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkueXVuZXdzLnByb2plY3RcL3YxXC9hdXRoIiwic3ViamVjdCI6eyJpZCI6MTQ2fSwiYXVkIjpbImh0dHA6XC9cL2FwaS55dW5ld3MucHJvamVjdCJdLCJleHAiOjE1NDU4MzAwNjV9.iGOF9CzAUH2ZEoZzw__JkdGrWO0kH9zTh-HzP9hxrfk</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Аутентификация завершилась неудачно.</p><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><p>Аутентифицированному пользователю не разрешен доступ к указанной точке входа API</p></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="rbac_assignment" class="panel-title">/rbac-assignment</h3></div><div class="panel-body"><div class="top-resource-description"><p>RBAC. Связи ролей с пользователями</p></div><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_rbac_assignment"><span class="parent"></span>/rbac-assignment</a> <span class="methods"><a href="#rbac_assignment_get"><span class="badge badge_get">get</span></a> <a href="#rbac_assignment_post"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_rbac_assignment" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#rbac_assignment_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Получть связей</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#rbac_assignment_post'" class="list-group-item"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Создать связь</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="rbac_assignment_get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent"></span>/rbac-assignment</h4></div><div class="modal-body"><div class="alert alert-info"><p>Получть связей</p></div><ul class="nav nav-tabs"><li class="active"><a href="#rbac_assignment_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="rbac_assignment_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>[
+
+]</code></pre></div></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="rbac_assignment_post"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent"></span>/rbac-assignment</h4></div><div class="modal-body"><div class="alert alert-info"><p>Создать связь</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>bearerAuth</b></div><ul class="nav nav-tabs"><li class="active"><a href="#rbac_assignment_post_request" data-toggle="tab">Request</a></li><li><a href="#rbac_assignment_post_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="rbac_assignment_post_request"><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+
+}</code></pre></div></div><div class="tab-pane" id="rbac_assignment_post_securedby"><h1>Secured by bearerAuth</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>JWT-токен</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImM4NGQyYTU0LTgyY2ItNGY5Ny1hYjJhLWE5MmFmNjM2ZmY1OCJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkueXVuZXdzLnByb2plY3RcL3YxXC9hdXRoIiwic3ViamVjdCI6eyJpZCI6MTQ2fSwiYXVkIjpbImh0dHA6XC9cL2FwaS55dW5ld3MucHJvamVjdCJdLCJleHAiOjE1NDU4MzAwNjV9.iGOF9CzAUH2ZEoZzw__JkdGrWO0kH9zTh-HzP9hxrfk</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Аутентификация завершилась неудачно.</p><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><p>Аутентифицированному пользователю не разрешен доступ к указанной точке входа API</p></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_rbac_assignment__name_"><span class="parent">/rbac-assignment</span>/{name}</a> <span class="methods"><a href="#rbac_assignment__name__get"><span class="badge badge_get">get</span></a> <a href="#rbac_assignment__name__put"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a> <a href="#rbac_assignment__name__delete"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_rbac_assignment__name_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#rbac_assignment__name__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Получить связь</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#rbac_assignment__name__put'" class="list-group-item"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Изменить связь</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#rbac_assignment__name__delete'" class="list-group-item"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Удалить связь</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="rbac_assignment__name__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/rbac-assignment</span>/{name}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Получить связь</p></div><ul class="nav nav-tabs"><li class="active"><a href="#rbac_assignment__name__get_request" data-toggle="tab">Request</a></li><li><a href="#rbac_assignment__name__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="rbac_assignment__name__get_request"><h3>URI Parameters</h3><ul><li><strong>name</strong>: <em><span class="required">required</span>(string)</em><p>Имя связи</p></li></ul></div><div class="tab-pane" id="rbac_assignment__name__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+
+}</code></pre></div></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="rbac_assignment__name__put"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/rbac-assignment</span>/{name}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Изменить связь</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>bearerAuth</b></div><ul class="nav nav-tabs"><li class="active"><a href="#rbac_assignment__name__put_request" data-toggle="tab">Request</a></li><li><a href="#rbac_assignment__name__put_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="rbac_assignment__name__put_request"><h3>URI Parameters</h3><ul><li><strong>name</strong>: <em><span class="required">required</span>(string)</em><p>Имя связи</p></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+
+}</code></pre></div></div><div class="tab-pane" id="rbac_assignment__name__put_securedby"><h1>Secured by bearerAuth</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>JWT-токен</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImM4NGQyYTU0LTgyY2ItNGY5Ny1hYjJhLWE5MmFmNjM2ZmY1OCJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkueXVuZXdzLnByb2plY3RcL3YxXC9hdXRoIiwic3ViamVjdCI6eyJpZCI6MTQ2fSwiYXVkIjpbImh0dHA6XC9cL2FwaS55dW5ld3MucHJvamVjdCJdLCJleHAiOjE1NDU4MzAwNjV9.iGOF9CzAUH2ZEoZzw__JkdGrWO0kH9zTh-HzP9hxrfk</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Аутентификация завершилась неудачно.</p><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><p>Аутентифицированному пользователю не разрешен доступ к указанной точке входа API</p></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="rbac_assignment__name__delete"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/rbac-assignment</span>/{name}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Удалить связь</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>bearerAuth</b></div><ul class="nav nav-tabs"><li class="active"><a href="#rbac_assignment__name__delete_request" data-toggle="tab">Request</a></li><li><a href="#rbac_assignment__name__delete_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="rbac_assignment__name__delete_request"><h3>URI Parameters</h3><ul><li><strong>name</strong>: <em><span class="required">required</span>(string)</em><p>Имя связи</p></li></ul></div><div class="tab-pane" id="rbac_assignment__name__delete_securedby"><h1>Secured by bearerAuth</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>JWT-токен</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImM4NGQyYTU0LTgyY2ItNGY5Ny1hYjJhLWE5MmFmNjM2ZmY1OCJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkueXVuZXdzLnByb2plY3RcL3YxXC9hdXRoIiwic3ViamVjdCI6eyJpZCI6MTQ2fSwiYXVkIjpbImh0dHA6XC9cL2FwaS55dW5ld3MucHJvamVjdCJdLCJleHAiOjE1NDU4MzAwNjV9.iGOF9CzAUH2ZEoZzw__JkdGrWO0kH9zTh-HzP9hxrfk</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Аутентификация завершилась неудачно.</p><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><p>Аутентифицированному пользователю не разрешен доступ к указанной точке входа API</p></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="rbac_permission" class="panel-title">/rbac-permission</h3></div><div class="panel-body"><div class="top-resource-description"><p>RBAC. Полномочия</p></div><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_rbac_permission"><span class="parent"></span>/rbac-permission</a> <span class="methods"><a href="#rbac_permission_get"><span class="badge badge_get">get</span></a> <a href="#rbac_permission_post"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_rbac_permission" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#rbac_permission_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Получть список полномочий</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#rbac_permission_post'" class="list-group-item"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Создать полномочие</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="rbac_permission_get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent"></span>/rbac-permission</h4></div><div class="modal-body"><div class="alert alert-info"><p>Получть список полномочий</p></div><ul class="nav nav-tabs"><li class="active"><a href="#rbac_permission_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="rbac_permission_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>[
+
+]</code></pre></div></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="rbac_permission_post"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent"></span>/rbac-permission</h4></div><div class="modal-body"><div class="alert alert-info"><p>Создать полномочие</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>bearerAuth</b></div><ul class="nav nav-tabs"><li class="active"><a href="#rbac_permission_post_request" data-toggle="tab">Request</a></li><li><a href="#rbac_permission_post_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="rbac_permission_post_request"><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+
+}</code></pre></div></div><div class="tab-pane" id="rbac_permission_post_securedby"><h1>Secured by bearerAuth</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>JWT-токен</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImM4NGQyYTU0LTgyY2ItNGY5Ny1hYjJhLWE5MmFmNjM2ZmY1OCJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkueXVuZXdzLnByb2plY3RcL3YxXC9hdXRoIiwic3ViamVjdCI6eyJpZCI6MTQ2fSwiYXVkIjpbImh0dHA6XC9cL2FwaS55dW5ld3MucHJvamVjdCJdLCJleHAiOjE1NDU4MzAwNjV9.iGOF9CzAUH2ZEoZzw__JkdGrWO0kH9zTh-HzP9hxrfk</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Аутентификация завершилась неудачно.</p><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><p>Аутентифицированному пользователю не разрешен доступ к указанной точке входа API</p></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_rbac_permission__name_"><span class="parent">/rbac-permission</span>/{name}</a> <span class="methods"><a href="#rbac_permission__name__get"><span class="badge badge_get">get</span></a> <a href="#rbac_permission__name__put"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a> <a href="#rbac_permission__name__delete"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_rbac_permission__name_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#rbac_permission__name__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Получить полномочие</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#rbac_permission__name__put'" class="list-group-item"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Изменить полномочие</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#rbac_permission__name__delete'" class="list-group-item"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Удалить полномочие</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="rbac_permission__name__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/rbac-permission</span>/{name}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Получить полномочие</p></div><ul class="nav nav-tabs"><li class="active"><a href="#rbac_permission__name__get_request" data-toggle="tab">Request</a></li><li><a href="#rbac_permission__name__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="rbac_permission__name__get_request"><h3>URI Parameters</h3><ul><li><strong>name</strong>: <em><span class="required">required</span>(string)</em><p>Имя полномочия</p></li></ul></div><div class="tab-pane" id="rbac_permission__name__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+
+}</code></pre></div></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="rbac_permission__name__put"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/rbac-permission</span>/{name}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Изменить полномочие</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>bearerAuth</b></div><ul class="nav nav-tabs"><li class="active"><a href="#rbac_permission__name__put_request" data-toggle="tab">Request</a></li><li><a href="#rbac_permission__name__put_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="rbac_permission__name__put_request"><h3>URI Parameters</h3><ul><li><strong>name</strong>: <em><span class="required">required</span>(string)</em><p>Имя полномочия</p></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+
+}</code></pre></div></div><div class="tab-pane" id="rbac_permission__name__put_securedby"><h1>Secured by bearerAuth</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>JWT-токен</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImM4NGQyYTU0LTgyY2ItNGY5Ny1hYjJhLWE5MmFmNjM2ZmY1OCJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkueXVuZXdzLnByb2plY3RcL3YxXC9hdXRoIiwic3ViamVjdCI6eyJpZCI6MTQ2fSwiYXVkIjpbImh0dHA6XC9cL2FwaS55dW5ld3MucHJvamVjdCJdLCJleHAiOjE1NDU4MzAwNjV9.iGOF9CzAUH2ZEoZzw__JkdGrWO0kH9zTh-HzP9hxrfk</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Аутентификация завершилась неудачно.</p><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><p>Аутентифицированному пользователю не разрешен доступ к указанной точке входа API</p></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="rbac_permission__name__delete"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/rbac-permission</span>/{name}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Удалить полномочие</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>bearerAuth</b></div><ul class="nav nav-tabs"><li class="active"><a href="#rbac_permission__name__delete_request" data-toggle="tab">Request</a></li><li><a href="#rbac_permission__name__delete_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="rbac_permission__name__delete_request"><h3>URI Parameters</h3><ul><li><strong>name</strong>: <em><span class="required">required</span>(string)</em><p>Имя полномочия</p></li></ul></div><div class="tab-pane" id="rbac_permission__name__delete_securedby"><h1>Secured by bearerAuth</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>JWT-токен</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImM4NGQyYTU0LTgyY2ItNGY5Ny1hYjJhLWE5MmFmNjM2ZmY1OCJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkueXVuZXdzLnByb2plY3RcL3YxXC9hdXRoIiwic3ViamVjdCI6eyJpZCI6MTQ2fSwiYXVkIjpbImh0dHA6XC9cL2FwaS55dW5ld3MucHJvamVjdCJdLCJleHAiOjE1NDU4MzAwNjV9.iGOF9CzAUH2ZEoZzw__JkdGrWO0kH9zTh-HzP9hxrfk</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Аутентификация завершилась неудачно.</p><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><p>Аутентифицированному пользователю не разрешен доступ к указанной точке входа API</p></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="rbac_role" class="panel-title">/rbac-role</h3></div><div class="panel-body"><div class="top-resource-description"><p>RBAC. Роли</p></div><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_rbac_role"><span class="parent"></span>/rbac-role</a> <span class="methods"><a href="#rbac_role_get"><span class="badge badge_get">get</span></a> <a href="#rbac_role_post"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_rbac_role" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#rbac_role_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Получть список</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#rbac_role_post'" class="list-group-item"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Создать роль</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="rbac_role_get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent"></span>/rbac-role</h4></div><div class="modal-body"><div class="alert alert-info"><p>Получть список</p></div><ul class="nav nav-tabs"><li class="active"><a href="#rbac_role_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="rbac_role_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>[
+
+]</code></pre></div></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="rbac_role_post"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent"></span>/rbac-role</h4></div><div class="modal-body"><div class="alert alert-info"><p>Создать роль</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>bearerAuth</b></div><ul class="nav nav-tabs"><li class="active"><a href="#rbac_role_post_request" data-toggle="tab">Request</a></li><li><a href="#rbac_role_post_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="rbac_role_post_request"><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+
+}</code></pre></div></div><div class="tab-pane" id="rbac_role_post_securedby"><h1>Secured by bearerAuth</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>JWT-токен</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImM4NGQyYTU0LTgyY2ItNGY5Ny1hYjJhLWE5MmFmNjM2ZmY1OCJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkueXVuZXdzLnByb2plY3RcL3YxXC9hdXRoIiwic3ViamVjdCI6eyJpZCI6MTQ2fSwiYXVkIjpbImh0dHA6XC9cL2FwaS55dW5ld3MucHJvamVjdCJdLCJleHAiOjE1NDU4MzAwNjV9.iGOF9CzAUH2ZEoZzw__JkdGrWO0kH9zTh-HzP9hxrfk</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Аутентификация завершилась неудачно.</p><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><p>Аутентифицированному пользователю не разрешен доступ к указанной точке входа API</p></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_rbac_role__name_"><span class="parent">/rbac-role</span>/{name}</a> <span class="methods"><a href="#rbac_role__name__get"><span class="badge badge_get">get</span></a> <a href="#rbac_role__name__put"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a> <a href="#rbac_role__name__delete"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_rbac_role__name_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#rbac_role__name__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Получить роль</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#rbac_role__name__put'" class="list-group-item"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Изменить роль</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#rbac_role__name__delete'" class="list-group-item"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Удалить роль</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="rbac_role__name__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/rbac-role</span>/{name}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Получить роль</p></div><ul class="nav nav-tabs"><li class="active"><a href="#rbac_role__name__get_request" data-toggle="tab">Request</a></li><li><a href="#rbac_role__name__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="rbac_role__name__get_request"><h3>URI Parameters</h3><ul><li><strong>name</strong>: <em><span class="required">required</span>(string)</em><p>Имя роли</p></li></ul></div><div class="tab-pane" id="rbac_role__name__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+
+}</code></pre></div></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="rbac_role__name__put"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/rbac-role</span>/{name}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Изменить роль</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>bearerAuth</b></div><ul class="nav nav-tabs"><li class="active"><a href="#rbac_role__name__put_request" data-toggle="tab">Request</a></li><li><a href="#rbac_role__name__put_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="rbac_role__name__put_request"><h3>URI Parameters</h3><ul><li><strong>name</strong>: <em><span class="required">required</span>(string)</em><p>Имя роли</p></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+
+}</code></pre></div></div><div class="tab-pane" id="rbac_role__name__put_securedby"><h1>Secured by bearerAuth</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>JWT-токен</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImM4NGQyYTU0LTgyY2ItNGY5Ny1hYjJhLWE5MmFmNjM2ZmY1OCJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkueXVuZXdzLnByb2plY3RcL3YxXC9hdXRoIiwic3ViamVjdCI6eyJpZCI6MTQ2fSwiYXVkIjpbImh0dHA6XC9cL2FwaS55dW5ld3MucHJvamVjdCJdLCJleHAiOjE1NDU4MzAwNjV9.iGOF9CzAUH2ZEoZzw__JkdGrWO0kH9zTh-HzP9hxrfk</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Аутентификация завершилась неудачно.</p><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><p>Аутентифицированному пользователю не разрешен доступ к указанной точке входа API</p></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="rbac_role__name__delete"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/rbac-role</span>/{name}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Удалить роль</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>bearerAuth</b></div><ul class="nav nav-tabs"><li class="active"><a href="#rbac_role__name__delete_request" data-toggle="tab">Request</a></li><li><a href="#rbac_role__name__delete_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="rbac_role__name__delete_request"><h3>URI Parameters</h3><ul><li><strong>name</strong>: <em><span class="required">required</span>(string)</em><p>Имя роли</p></li></ul></div><div class="tab-pane" id="rbac_role__name__delete_securedby"><h1>Secured by bearerAuth</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>JWT-токен</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImM4NGQyYTU0LTgyY2ItNGY5Ny1hYjJhLWE5MmFmNjM2ZmY1OCJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkueXVuZXdzLnByb2plY3RcL3YxXC9hdXRoIiwic3ViamVjdCI6eyJpZCI6MTQ2fSwiYXVkIjpbImh0dHA6XC9cL2FwaS55dW5ld3MucHJvamVjdCJdLCJleHAiOjE1NDU4MzAwNjV9.iGOF9CzAUH2ZEoZzw__JkdGrWO0kH9zTh-HzP9hxrfk</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Аутентификация завершилась неудачно.</p><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><p>Аутентифицированному пользователю не разрешен доступ к указанной точке входа API</p></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="user_manage" class="panel-title">/user-manage</h3></div><div class="panel-body"><div class="top-resource-description"><p>Управление пользователями</p></div><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_user_manage__phone_"><span class="parent">/user-manage</span>/{phone}</a> <span class="methods"><a href="#user_manage__phone__delete"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_user_manage__phone_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#user_manage__phone__delete'" class="list-group-item"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Удалить пользователя</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="user_manage__phone__delete"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/user-manage</span>/{phone}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Удалить пользователя</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>bearerAuth</b></div><ul class="nav nav-tabs"><li class="active"><a href="#user_manage__phone__delete_request" data-toggle="tab">Request</a></li><li><a href="#user_manage__phone__delete_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="user_manage__phone__delete_request"><h3>URI Parameters</h3><ul><li><strong>phone</strong>: <em><span class="required">required</span>(integer)</em><p>Телефон пользователя</p></li></ul></div><div class="tab-pane" id="user_manage__phone__delete_securedby"><h1>Secured by bearerAuth</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>JWT-токен</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImM4NGQyYTU0LTgyY2ItNGY5Ny1hYjJhLWE5MmFmNjM2ZmY1OCJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkueXVuZXdzLnByb2plY3RcL3YxXC9hdXRoIiwic3ViamVjdCI6eyJpZCI6MTQ2fSwiYXVkIjpbImh0dHA6XC9cL2FwaS55dW5ld3MucHJvamVjdCJdLCJleHAiOjE1NDU4MzAwNjV9.iGOF9CzAUH2ZEoZzw__JkdGrWO0kH9zTh-HzP9hxrfk</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Аутентификация завершилась неудачно.</p><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><p>Аутентифицированному пользователю не разрешен доступ к указанной точке входа API</p></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="personal_settings" class="panel-title">/personal-settings</h3></div><div class="panel-body"><div class="top-resource-description"><p>Настройки пользователя</p></div><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_personal_settings"><span class="parent"></span>/personal-settings</a> <span class="methods"><a href="#personal_settings_get"><span class="badge badge_get">get</span></a> <a href="#personal_settings_put"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_personal_settings" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#personal_settings_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Получить настройки</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#personal_settings_put'" class="list-group-item"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Изменить настройки</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="personal_settings_get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent"></span>/personal-settings</h4></div><div class="modal-body"><div class="alert alert-info"><p>Получить настройки</p></div><ul class="nav nav-tabs"><li class="active"><a href="#personal_settings_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="personal_settings_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+	"language": "kz",
+	"is_enable_notify": true
+}</code></pre></div></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="personal_settings_put"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent"></span>/personal-settings</h4></div><div class="modal-body"><div class="alert alert-info"><p>Изменить настройки</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>bearerAuth</b></div><ul class="nav nav-tabs"><li class="active"><a href="#personal_settings_put_request" data-toggle="tab">Request</a></li><li><a href="#personal_settings_put_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="personal_settings_put_request"><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+	"language": "kz",
+	"is_enable_notify": true
+}</code></pre></div></div><div class="tab-pane" id="personal_settings_put_securedby"><h1>Secured by bearerAuth</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>JWT-токен</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImM4NGQyYTU0LTgyY2ItNGY5Ny1hYjJhLWE5MmFmNjM2ZmY1OCJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkueXVuZXdzLnByb2plY3RcL3YxXC9hdXRoIiwic3ViamVjdCI6eyJpZCI6MTQ2fSwiYXVkIjpbImh0dHA6XC9cL2FwaS55dW5ld3MucHJvamVjdCJdLCJleHAiOjE1NDU4MzAwNjV9.iGOF9CzAUH2ZEoZzw__JkdGrWO0kH9zTh-HzP9hxrfk</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Аутентификация завершилась неудачно.</p><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><p>Аутентифицированному пользователю не разрешен доступ к указанной точке входа API</p></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="system_settings" class="panel-title">/system-settings</h3></div><div class="panel-body"><div class="top-resource-description"><p>Системные настройки</p></div><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_system_settings"><span class="parent"></span>/system-settings</a> <span class="methods"><a href="#system_settings_get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_system_settings" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#system_settings_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Получить все настройки</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="system_settings_get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent"></span>/system-settings</h4></div><div class="modal-body"><div class="alert alert-info"><p>Получить все настройки</p></div><ul class="nav nav-tabs"><li class="active"><a href="#system_settings_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="system_settings_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+  "account": {
+    "registration": {
+      "access": "open",
+      "defaultStatus": 1
+    },
+    "login": {
+      "defaultCompanyId": 1
+    },
+    "confirm": {
+      "smsInterval": 60
+    }
+  }
+}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_system_settings__name_"><span class="parent">/system-settings</span>/{name}</a> <span class="methods"><a href="#system_settings__name__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_system_settings__name_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#system_settings__name__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Получить настройки по имени</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="system_settings__name__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/system-settings</span>/{name}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Получить настройки по имени</p></div><ul class="nav nav-tabs"><li class="active"><a href="#system_settings__name__get_request" data-toggle="tab">Request</a></li><li><a href="#system_settings__name__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="system_settings__name__get_request"><h3>URI Parameters</h3><ul><li><strong>name</strong>: <em><span class="required">required</span>(string)</em><p>Имя настройки</p></li></ul></div><div class="tab-pane" id="system_settings__name__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+  "registration": {
+    "access": "open",
+    "defaultStatus": 1
+  },
+  "login": {
+    "defaultCompanyId": 1
+  },
+  "confirm": {
+    "smsInterval": 60
+  }
+}</code></pre></div></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="meta_entity" class="panel-title">/meta-entity</h3></div><div class="panel-body"><div class="top-resource-description"><p>Мета-сущности</p></div><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_meta_entity"><span class="parent"></span>/meta-entity</a> <span class="methods"><a href="#meta_entity_get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_meta_entity" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#meta_entity_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Получть список сущностей</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="meta_entity_get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent"></span>/meta-entity</h4></div><div class="modal-body"><div class="alert alert-info"><p>Получть список сущностей</p></div><ul class="nav nav-tabs"><li class="active"><a href="#meta_entity_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="meta_entity_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>[
+  {
+    "id": 1,
+    "book_id": 1,
+    "name": "person",
+    "title": "Персона",
+    "handler": null,
+    "status": 1,
+    "fields": [
+      {
+        "id": 2,
+        "entity_id": 1,
+        "name": "iin",
+        "type": "string",
+        "is_required": 1,
+        "default": null,
+        "title": "ИИН",
+        "description": null,
+        "sort": 10,
+        "status": 1,
+        "rules": [
+          {
+            "id": 4,
+            "field_id": 2,
+            "name": "yii2rails\\extension\\validator\\IinValidator",
+            "params": null,
+            "sort": 20,
+            "status": 1
+          }
+        ],
+        "enums": []
+      },
+      {
+        "id": 1,
+        "entity_id": 1,
+        "name": "birthday",
+        "type": "string",
+        "is_required": 1,
+        "default": null,
+        "title": "Дата рождения",
+        "description": null,
+        "sort": 20,
+        "status": 1,
+        "rules": [
+          {
+            "id": 1,
+            "field_id": 1,
+            "name": "birthday",
+            "params": null,
+            "sort": 20,
+            "status": 1
+          }
+        ],
+        "enums": []
+      },
+      {
+        "id": 3,
+        "entity_id": 1,
+        "name": "sex",
+        "type": "enum",
+        "is_required": 1,
+        "default": null,
+        "title": "Пол",
+        "description": null,
+        "sort": 30,
+        "status": 1,
+        "rules": [],
+        "enums": [
+          {
+            "id": 1,
+            "field_id": 3,
+            "name": "male",
+            "title": "Мжчина",
+            "sort": 10,
+            "status": 1
+          },
+          {
+            "id": 2,
+            "field_id": 3,
+            "name": "female",
+            "title": "Женщина",
+            "sort": 20,
+            "status": 1
+          }
+        ]
+      }
+    ],
+    "book": {
+      "id": 1,
+      "name": "user",
+      "title": "Пользователь"
+    }
+  },
+  {
+    "id": 2,
+    "book_id": 4,
+    "name": "personal",
+    "title": "Настройки клиента (Web, IOS, Android)",
+    "handler": null,
+    "status": 1,
+    "fields": [
+      {
+        "id": 8,
+        "entity_id": 2,
+        "name": "language",
+        "type": "enum",
+        "is_required": 0,
+        "default": "ru",
+        "title": "Язык",
+        "description": null,
+        "sort": 10,
+        "status": 1,
+        "rules": [],
+        "enums": [
+          {
+            "id": 3,
+            "field_id": 8,
+            "name": "ru",
+            "title": "Русский",
+            "sort": 10,
+            "status": 1
+          },
+          {
+            "id": 4,
+            "field_id": 8,
+            "name": "kz",
+            "title": "Казахский",
+            "sort": 10,
+            "status": 1
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "entity_id": 2,
+        "name": "is_enable_sign",
+        "type": "boolean",
+        "is_required": 1,
+        "default": 0,
+        "title": "Включить подпись к письму",
+        "description": null,
+        "sort": 10,
+        "status": 1,
+        "rules": [],
+        "enums": []
+      },
+      {
+        "id": 7,
+        "entity_id": 2,
+        "name": "sign_text",
+        "type": "safe_string",
+        "is_required": 0,
+        "default": "",
+        "title": "Текст подписи",
+        "description": null,
+        "sort": 10,
+        "status": 1,
+        "rules": [
+          {
+            "id": 6,
+            "field_id": 7,
+            "name": "string",
+            "params": {
+              "length": [
+                0,
+                1024
+              ]
+            },
+            "sort": 10,
+            "status": 1
+          }
+        ],
+        "enums": []
+      },
+      {
+        "id": 4,
+        "entity_id": 2,
+        "name": "is_enable_message_notify",
+        "type": "boolean",
+        "is_required": 1,
+        "default": 1,
+        "title": "Включить уведомления о сообщениях",
+        "description": null,
+        "sort": 10,
+        "status": 1,
+        "rules": [],
+        "enums": []
+      },
+      {
+        "id": 5,
+        "entity_id": 2,
+        "name": "is_enable_mail_notify",
+        "type": "boolean",
+        "is_required": 1,
+        "default": 1,
+        "title": "Включить уведомления о письмах",
+        "description": null,
+        "sort": 10,
+        "status": 1,
+        "rules": [],
+        "enums": []
+      }
+    ],
+    "book": {
+      "id": 4,
+      "name": "settings",
+      "title": "Настройки"
+    }
+  }
+]</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_meta_entity__id_"><span class="parent">/meta-entity</span>/{id}</a> <span class="methods"><a href="#meta_entity__id__get"><span class="badge badge_get">get</span></a> <a href="#meta_entity__id__put"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_meta_entity__id_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#meta_entity__id__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Получить сущность</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#meta_entity__id__put'" class="list-group-item"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Валидация данных сущности</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="meta_entity__id__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/meta-entity</span>/{id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Получить сущность</p></div><ul class="nav nav-tabs"><li class="active"><a href="#meta_entity__id__get_request" data-toggle="tab">Request</a></li><li><a href="#meta_entity__id__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="meta_entity__id__get_request"><h3>URI Parameters</h3><ul><li><strong>id</strong>: <em><span class="required">required</span>(integer)</em><p>ID сущности</p></li></ul></div><div class="tab-pane" id="meta_entity__id__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+  "id": 1,
+  "book_id": 1,
+  "name": "person",
+  "title": "Персона",
+  "handler": null,
+  "status": 1,
+  "fields": [
+    {
+      "id": 2,
+      "entity_id": 1,
+      "name": "iin",
+      "type": "string",
+      "is_required": 1,
+      "default": null,
+      "title": "ИИН",
+      "description": null,
+      "sort": 10,
+      "status": 1,
+      "rules": [
+        {
+          "id": 4,
+          "field_id": 2,
+          "name": "yii2rails\\extension\\validator\\IinValidator",
+          "params": null,
+          "sort": 20,
+          "status": 1
+        }
+      ],
+      "enums": []
+    },
+    {
+      "id": 1,
+      "entity_id": 1,
+      "name": "birthday",
+      "type": "string",
+      "is_required": 1,
+      "default": null,
+      "title": "Дата рождения",
+      "description": null,
+      "sort": 20,
+      "status": 1,
+      "rules": [
+        {
+          "id": 1,
+          "field_id": 1,
+          "name": "birthday",
+          "params": null,
+          "sort": 20,
+          "status": 1
+        }
+      ],
+      "enums": []
+    },
+    {
+      "id": 3,
+      "entity_id": 1,
+      "name": "sex",
+      "type": "enum",
+      "is_required": 1,
+      "default": null,
+      "title": "Пол",
+      "description": null,
+      "sort": 30,
+      "status": 1,
+      "rules": [],
+      "enums": [
+        {
+          "id": 1,
+          "field_id": 3,
+          "name": "male",
+          "title": "Мжчина",
+          "sort": 10,
+          "status": 1
+        },
+        {
+          "id": 2,
+          "field_id": 3,
+          "name": "female",
+          "title": "Женщина",
+          "sort": 20,
+          "status": 1
+        }
+      ]
+    }
+  ],
+  "book": {
+    "id": 1,
+    "name": "user",
+    "title": "Пользователь"
+  }
+}</code></pre></div></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="meta_entity__id__put"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/meta-entity</span>/{id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Валидация данных сущности</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>bearerAuth</b></div><ul class="nav nav-tabs"><li class="active"><a href="#meta_entity__id__put_request" data-toggle="tab">Request</a></li><li><a href="#meta_entity__id__put_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="meta_entity__id__put_request"><h3>URI Parameters</h3><ul><li><strong>id</strong>: <em><span class="required">required</span>(integer)</em><p>ID сущности</p></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+  "iin": "880601300187",
+  "birthday": "1988-06-01",
+  "sex": "male"
+}</code></pre></div></div><div class="tab-pane" id="meta_entity__id__put_securedby"><h1>Secured by bearerAuth</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>JWT-токен</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImM4NGQyYTU0LTgyY2ItNGY5Ny1hYjJhLWE5MmFmNjM2ZmY1OCJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkueXVuZXdzLnByb2plY3RcL3YxXC9hdXRoIiwic3ViamVjdCI6eyJpZCI6MTQ2fSwiYXVkIjpbImh0dHA6XC9cL2FwaS55dW5ld3MucHJvamVjdCJdLCJleHAiOjE1NDU4MzAwNjV9.iGOF9CzAUH2ZEoZzw__JkdGrWO0kH9zTh-HzP9hxrfk</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Аутентификация завершилась неудачно.</p><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><p>Аутентифицированному пользователю не разрешен доступ к указанной точке входа API</p></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="city" class="panel-title">/city</h3></div><div class="panel-body"><div class="top-resource-description"><p>Города</p></div><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_city"><span class="parent"></span>/city</a> <span class="methods"><a href="#city_get"><span class="badge badge_get">get</span></a> <a href="#city_post"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_city" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#city_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Возвращает список городов</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#city_post'" class="list-group-item"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Создать город</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="city_get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent"></span>/city</h4></div><div class="modal-body"><div class="alert alert-info"><p>Возвращает список городов</p></div><ul class="nav nav-tabs"><li class="active"><a href="#city_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="city_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>[
+	{
+		"id": 6,
+		"country_id": 4,
+		"region_id": 5,
+		"name": "Балларат",
+		"country": {
+			"id": 4,
+			"name": "Австралия",
+			"currency": null
+		},
+		"region": {
+			"id": 5,
+			"country_id": 4,
+			"name": "Виктория",
+			"country": null,
+			"cities": null
+		}
+	},
+	{
+		"id": 7,
+		"country_id": 4,
+		"region_id": 5,
+		"name": "Бендиго",
+		"country": {
+			"id": 4,
+			"name": "Австралия",
+			"currency": null
+		},
+		"region": {
+			"id": 5,
+			"country_id": 4,
+			"name": "Виктория",
+			"country": null,
+			"cities": null
+		}
+	}
+]</code></pre></div></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="city_post"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent"></span>/city</h4></div><div class="modal-body"><div class="alert alert-info"><p>Создать город</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>bearerAuth</b></div><ul class="nav nav-tabs"><li class="active"><a href="#city_post_request" data-toggle="tab">Request</a></li><li><a href="#city_post_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="city_post_request"><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+	"country_id": 4,
+	"region_id": 5,
+	"name": "Балларат"
+}</code></pre></div></div><div class="tab-pane" id="city_post_securedby"><h1>Secured by bearerAuth</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>JWT-токен</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImM4NGQyYTU0LTgyY2ItNGY5Ny1hYjJhLWE5MmFmNjM2ZmY1OCJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkueXVuZXdzLnByb2plY3RcL3YxXC9hdXRoIiwic3ViamVjdCI6eyJpZCI6MTQ2fSwiYXVkIjpbImh0dHA6XC9cL2FwaS55dW5ld3MucHJvamVjdCJdLCJleHAiOjE1NDU4MzAwNjV9.iGOF9CzAUH2ZEoZzw__JkdGrWO0kH9zTh-HzP9hxrfk</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Аутентификация завершилась неудачно.</p><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><p>Аутентифицированному пользователю не разрешен доступ к указанной точке входа API</p></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_city__id_"><span class="parent">/city</span>/{id}</a> <span class="methods"><a href="#city__id__get"><span class="badge badge_get">get</span></a> <a href="#city__id__put"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a> <a href="#city__id__delete"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_city__id_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#city__id__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Возвращает город</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#city__id__put'" class="list-group-item"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Изменить город</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#city__id__delete'" class="list-group-item"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Удалить город</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="city__id__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/city</span>/{id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Возвращает город</p></div><ul class="nav nav-tabs"><li class="active"><a href="#city__id__get_request" data-toggle="tab">Request</a></li><li><a href="#city__id__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="city__id__get_request"><h3>URI Parameters</h3><ul><li><strong>id</strong>: <em><span class="required">required</span>(integer)</em><p>ID города</p></li></ul></div><div class="tab-pane" id="city__id__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+	"id": 6,
+	"country_id": 4,
+	"region_id": 5,
+	"name": "Балларат",
+	"country": {
+		"id": 4,
+		"name": "Австралия",
+		"currency": null
+	},
+	"region": {
+		"id": 5,
+		"country_id": 4,
+		"name": "Виктория",
+		"country": null,
+		"cities": null
+	}
+}</code></pre></div></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="city__id__put"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/city</span>/{id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Изменить город</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>bearerAuth</b></div><ul class="nav nav-tabs"><li class="active"><a href="#city__id__put_request" data-toggle="tab">Request</a></li><li><a href="#city__id__put_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="city__id__put_request"><h3>URI Parameters</h3><ul><li><strong>id</strong>: <em><span class="required">required</span>(integer)</em><p>ID города</p></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+	"country_id": 4,
+	"region_id": 5,
+	"name": "Балларат"
+}</code></pre></div></div><div class="tab-pane" id="city__id__put_securedby"><h1>Secured by bearerAuth</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>JWT-токен</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImM4NGQyYTU0LTgyY2ItNGY5Ny1hYjJhLWE5MmFmNjM2ZmY1OCJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkueXVuZXdzLnByb2plY3RcL3YxXC9hdXRoIiwic3ViamVjdCI6eyJpZCI6MTQ2fSwiYXVkIjpbImh0dHA6XC9cL2FwaS55dW5ld3MucHJvamVjdCJdLCJleHAiOjE1NDU4MzAwNjV9.iGOF9CzAUH2ZEoZzw__JkdGrWO0kH9zTh-HzP9hxrfk</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Аутентификация завершилась неудачно.</p><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><p>Аутентифицированному пользователю не разрешен доступ к указанной точке входа API</p></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="city__id__delete"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/city</span>/{id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Удалить город</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>bearerAuth</b></div><ul class="nav nav-tabs"><li class="active"><a href="#city__id__delete_request" data-toggle="tab">Request</a></li><li><a href="#city__id__delete_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="city__id__delete_request"><h3>URI Parameters</h3><ul><li><strong>id</strong>: <em><span class="required">required</span>(integer)</em><p>ID города</p></li></ul></div><div class="tab-pane" id="city__id__delete_securedby"><h1>Secured by bearerAuth</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>JWT-токен</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImM4NGQyYTU0LTgyY2ItNGY5Ny1hYjJhLWE5MmFmNjM2ZmY1OCJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkueXVuZXdzLnByb2plY3RcL3YxXC9hdXRoIiwic3ViamVjdCI6eyJpZCI6MTQ2fSwiYXVkIjpbImh0dHA6XC9cL2FwaS55dW5ld3MucHJvamVjdCJdLCJleHAiOjE1NDU4MzAwNjV9.iGOF9CzAUH2ZEoZzw__JkdGrWO0kH9zTh-HzP9hxrfk</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Аутентификация завершилась неудачно.</p><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><p>Аутентифицированному пользователю не разрешен доступ к указанной точке входа API</p></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="region" class="panel-title">/region</h3></div><div class="panel-body"><div class="top-resource-description"><p>Регионы</p></div><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_region"><span class="parent"></span>/region</a> <span class="methods"><a href="#region_get"><span class="badge badge_get">get</span></a> <a href="#region_post"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_region" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#region_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Возвращает список регионов</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#region_post'" class="list-group-item"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Создать регион</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="region_get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent"></span>/region</h4></div><div class="modal-body"><div class="alert alert-info"><p>Возвращает список регионов</p></div><ul class="nav nav-tabs"><li class="active"><a href="#region_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="region_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>[
+	{
+		"id": 5,
+		"country_id": 4,
+		"name": "Виктория",
+		"country": {
+			"id": 4,
+			"name": "Австралия",
+			"currency": null
+		},
+		"cities": null
+	},
+	{
+		"id": 16,
+		"country_id": 4,
+		"name": "Западная Австралия",
+		"country": {
+			"id": 4,
+			"name": "Австралия",
+			"currency": null
+		},
+		"cities": null
+	},
+	{
+		"id": 23,
+		"country_id": 4,
+		"name": "Кинсленд",
+		"country": {
+			"id": 4,
+			"name": "Австралия",
+			"currency": null
+		},
+		"cities": null
+	}
+]</code></pre></div></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="region_post"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent"></span>/region</h4></div><div class="modal-body"><div class="alert alert-info"><p>Создать регион</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>bearerAuth</b></div><ul class="nav nav-tabs"><li class="active"><a href="#region_post_request" data-toggle="tab">Request</a></li><li><a href="#region_post_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="region_post_request"><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+	"country_id": 1894,
+	"name": "Карагандинская обл."
+}</code></pre></div></div><div class="tab-pane" id="region_post_securedby"><h1>Secured by bearerAuth</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>JWT-токен</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImM4NGQyYTU0LTgyY2ItNGY5Ny1hYjJhLWE5MmFmNjM2ZmY1OCJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkueXVuZXdzLnByb2plY3RcL3YxXC9hdXRoIiwic3ViamVjdCI6eyJpZCI6MTQ2fSwiYXVkIjpbImh0dHA6XC9cL2FwaS55dW5ld3MucHJvamVjdCJdLCJleHAiOjE1NDU4MzAwNjV9.iGOF9CzAUH2ZEoZzw__JkdGrWO0kH9zTh-HzP9hxrfk</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Аутентификация завершилась неудачно.</p><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><p>Аутентифицированному пользователю не разрешен доступ к указанной точке входа API</p></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_region__id_"><span class="parent">/region</span>/{id}</a> <span class="methods"><a href="#region__id__get"><span class="badge badge_get">get</span></a> <a href="#region__id__put"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a> <a href="#region__id__delete"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_region__id_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#region__id__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Возвращает регион</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#region__id__put'" class="list-group-item"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Изменить регион</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#region__id__delete'" class="list-group-item"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Удалить регион</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="region__id__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/region</span>/{id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Возвращает регион</p></div><ul class="nav nav-tabs"><li class="active"><a href="#region__id__get_request" data-toggle="tab">Request</a></li><li><a href="#region__id__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="region__id__get_request"><h3>URI Parameters</h3><ul><li><strong>id</strong>: <em><span class="required">required</span>(integer)</em><p>ID региона</p></li></ul></div><div class="tab-pane" id="region__id__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+	"id": 1994,
+	"country_id": 1894,
+	"name": "Карагандинская обл.",
+	"country": {
+		"id": 1894,
+		"name": "Казахстан",
+		"currency": null
+	},
+	"cities": [
+		{
+			"id": 1996,
+			"country_id": 1894,
+			"region_id": 1994,
+			"name": "Актас",
+			"country": null,
+			"region": null
+		},
+		{
+			"id": 2000,
+			"country_id": 1894,
+			"region_id": 1994,
+			"name": "Караганда",
+			"country": null,
+			"region": null
+		},
+		{
+			"id": 2001,
+			"country_id": 1894,
+			"region_id": 1994,
+			"name": "Каркаралинск",
+			"country": null,
+			"region": null
+		},
+		{
+			"id": 2005,
+			"country_id": 1894,
+			"region_id": 1994,
+			"name": "Темиртау",
+			"country": null,
+			"region": null
+		}
+	]
+}</code></pre></div></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="region__id__put"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/region</span>/{id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Изменить регион</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>bearerAuth</b></div><ul class="nav nav-tabs"><li class="active"><a href="#region__id__put_request" data-toggle="tab">Request</a></li><li><a href="#region__id__put_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="region__id__put_request"><h3>URI Parameters</h3><ul><li><strong>id</strong>: <em><span class="required">required</span>(integer)</em><p>ID региона</p></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+	"country_id": 1894,
+	"name": "Карагандинская обл."
+}</code></pre></div></div><div class="tab-pane" id="region__id__put_securedby"><h1>Secured by bearerAuth</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>JWT-токен</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImM4NGQyYTU0LTgyY2ItNGY5Ny1hYjJhLWE5MmFmNjM2ZmY1OCJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkueXVuZXdzLnByb2plY3RcL3YxXC9hdXRoIiwic3ViamVjdCI6eyJpZCI6MTQ2fSwiYXVkIjpbImh0dHA6XC9cL2FwaS55dW5ld3MucHJvamVjdCJdLCJleHAiOjE1NDU4MzAwNjV9.iGOF9CzAUH2ZEoZzw__JkdGrWO0kH9zTh-HzP9hxrfk</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Аутентификация завершилась неудачно.</p><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><p>Аутентифицированному пользователю не разрешен доступ к указанной точке входа API</p></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="region__id__delete"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/region</span>/{id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Удалить регион</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>bearerAuth</b></div><ul class="nav nav-tabs"><li class="active"><a href="#region__id__delete_request" data-toggle="tab">Request</a></li><li><a href="#region__id__delete_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="region__id__delete_request"><h3>URI Parameters</h3><ul><li><strong>id</strong>: <em><span class="required">required</span>(integer)</em><p>ID региона</p></li></ul></div><div class="tab-pane" id="region__id__delete_securedby"><h1>Secured by bearerAuth</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>JWT-токен</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImM4NGQyYTU0LTgyY2ItNGY5Ny1hYjJhLWE5MmFmNjM2ZmY1OCJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkueXVuZXdzLnByb2plY3RcL3YxXC9hdXRoIiwic3ViamVjdCI6eyJpZCI6MTQ2fSwiYXVkIjpbImh0dHA6XC9cL2FwaS55dW5ld3MucHJvamVjdCJdLCJleHAiOjE1NDU4MzAwNjV9.iGOF9CzAUH2ZEoZzw__JkdGrWO0kH9zTh-HzP9hxrfk</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Аутентификация завершилась неудачно.</p><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><p>Аутентифицированному пользователю не разрешен доступ к указанной точке входа API</p></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="country" class="panel-title">/country</h3></div><div class="panel-body"><div class="top-resource-description"><p>Страны</p></div><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_country"><span class="parent"></span>/country</a> <span class="methods"><a href="#country_get"><span class="badge badge_get">get</span></a> <a href="#country_post"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_country" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#country_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Возвращает список стран</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#country_post'" class="list-group-item"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Создать страну</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="country_get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent"></span>/country</h4></div><div class="modal-body"><div class="alert alert-info"><p>Возвращает список стран</p></div><ul class="nav nav-tabs"><li class="active"><a href="#country_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="country_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>[
+	{
+		"id": 1894,
+		"name": "Казахстан",
+		"currency": {
+			"id": 1,
+			"country_id": 1894,
+			"code": "KZT",
+			"name": "Казахский тенге",
+			"description": null,
+			"country": null
+		}
+	},
+	{
+		"id": 63,
+		"name": "Австрия",
+		"currency": null
+	}
+]</code></pre></div></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="country_post"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent"></span>/country</h4></div><div class="modal-body"><div class="alert alert-info"><p>Создать страну</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>bearerAuth</b></div><ul class="nav nav-tabs"><li class="active"><a href="#country_post_request" data-toggle="tab">Request</a></li><li><a href="#country_post_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="country_post_request"><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+	"name": "Казахстан"
+}</code></pre></div></div><div class="tab-pane" id="country_post_securedby"><h1>Secured by bearerAuth</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>JWT-токен</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImM4NGQyYTU0LTgyY2ItNGY5Ny1hYjJhLWE5MmFmNjM2ZmY1OCJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkueXVuZXdzLnByb2plY3RcL3YxXC9hdXRoIiwic3ViamVjdCI6eyJpZCI6MTQ2fSwiYXVkIjpbImh0dHA6XC9cL2FwaS55dW5ld3MucHJvamVjdCJdLCJleHAiOjE1NDU4MzAwNjV9.iGOF9CzAUH2ZEoZzw__JkdGrWO0kH9zTh-HzP9hxrfk</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Аутентификация завершилась неудачно.</p><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><p>Аутентифицированному пользователю не разрешен доступ к указанной точке входа API</p></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_country__id_"><span class="parent">/country</span>/{id}</a> <span class="methods"><a href="#country__id__get"><span class="badge badge_get">get</span></a> <a href="#country__id__put"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a> <a href="#country__id__delete"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_country__id_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#country__id__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Возвращает страну</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#country__id__put'" class="list-group-item"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Изменить страну</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#country__id__delete'" class="list-group-item"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Удалить страну</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="country__id__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/country</span>/{id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Возвращает страну</p></div><ul class="nav nav-tabs"><li class="active"><a href="#country__id__get_request" data-toggle="tab">Request</a></li><li><a href="#country__id__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="country__id__get_request"><h3>URI Parameters</h3><ul><li><strong>id</strong>: <em><span class="required">required</span>(integer)</em><p>ID страны</p></li></ul></div><div class="tab-pane" id="country__id__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+	"id": 1894,
+	"name": "Казахстан",
+	"currency": {
+		"id": 1,
+		"country_id": 1894,
+		"code": "KZT",
+		"name": "Казахский тенге",
+		"description": null,
+		"country": null
+	}
+}</code></pre></div></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="country__id__put"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/country</span>/{id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Изменить страну</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>bearerAuth</b></div><ul class="nav nav-tabs"><li class="active"><a href="#country__id__put_request" data-toggle="tab">Request</a></li><li><a href="#country__id__put_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="country__id__put_request"><h3>URI Parameters</h3><ul><li><strong>id</strong>: <em><span class="required">required</span>(integer)</em><p>ID страны</p></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+	"name": "Казахстан"
+}</code></pre></div></div><div class="tab-pane" id="country__id__put_securedby"><h1>Secured by bearerAuth</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>JWT-токен</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImM4NGQyYTU0LTgyY2ItNGY5Ny1hYjJhLWE5MmFmNjM2ZmY1OCJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkueXVuZXdzLnByb2plY3RcL3YxXC9hdXRoIiwic3ViamVjdCI6eyJpZCI6MTQ2fSwiYXVkIjpbImh0dHA6XC9cL2FwaS55dW5ld3MucHJvamVjdCJdLCJleHAiOjE1NDU4MzAwNjV9.iGOF9CzAUH2ZEoZzw__JkdGrWO0kH9zTh-HzP9hxrfk</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Аутентификация завершилась неудачно.</p><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><p>Аутентифицированному пользователю не разрешен доступ к указанной точке входа API</p></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="country__id__delete"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/country</span>/{id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Удалить страну</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>bearerAuth</b></div><ul class="nav nav-tabs"><li class="active"><a href="#country__id__delete_request" data-toggle="tab">Request</a></li><li><a href="#country__id__delete_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="country__id__delete_request"><h3>URI Parameters</h3><ul><li><strong>id</strong>: <em><span class="required">required</span>(integer)</em><p>ID страны</p></li></ul></div><div class="tab-pane" id="country__id__delete_securedby"><h1>Secured by bearerAuth</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>JWT-токен</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImM4NGQyYTU0LTgyY2ItNGY5Ny1hYjJhLWE5MmFmNjM2ZmY1OCJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkueXVuZXdzLnByb2plY3RcL3YxXC9hdXRoIiwic3ViamVjdCI6eyJpZCI6MTQ2fSwiYXVkIjpbImh0dHA6XC9cL2FwaS55dW5ld3MucHJvamVjdCJdLCJleHAiOjE1NDU4MzAwNjV9.iGOF9CzAUH2ZEoZzw__JkdGrWO0kH9zTh-HzP9hxrfk</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Аутентификация завершилась неудачно.</p><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><p>Аутентифицированному пользователю не разрешен доступ к указанной точке входа API</p></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="currency" class="panel-title">/currency</h3></div><div class="panel-body"><div class="top-resource-description"><p>Валюты</p></div><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_currency"><span class="parent"></span>/currency</a> <span class="methods"><a href="#currency_get"><span class="badge badge_get">get</span></a> <a href="#currency_post"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_currency" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#currency_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Возвращает список валют</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#currency_post'" class="list-group-item"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Создать валюту</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="currency_get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent"></span>/currency</h4></div><div class="modal-body"><div class="alert alert-info"><p>Возвращает список валют</p></div><ul class="nav nav-tabs"><li class="active"><a href="#currency_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="currency_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>[
+	{
+		"id": 1,
+		"country_id": 1894,
+		"code": "KZT",
+		"name": "Казахский тенге",
+		"description": null,
+		"country": {
+			"id": 1894,
+			"name": "Казахстан",
+			"currency": null
+		}
+	}
+]</code></pre></div></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="currency_post"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent"></span>/currency</h4></div><div class="modal-body"><div class="alert alert-info"><p>Создать валюту</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>bearerAuth</b></div><ul class="nav nav-tabs"><li class="active"><a href="#currency_post_request" data-toggle="tab">Request</a></li><li><a href="#currency_post_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="currency_post_request"><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+	"country_id": 1894,
+	"code": "KZT",
+	"name": "Казахский тенге",
+	"description": null
+}</code></pre></div></div><div class="tab-pane" id="currency_post_securedby"><h1>Secured by bearerAuth</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>JWT-токен</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImM4NGQyYTU0LTgyY2ItNGY5Ny1hYjJhLWE5MmFmNjM2ZmY1OCJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkueXVuZXdzLnByb2plY3RcL3YxXC9hdXRoIiwic3ViamVjdCI6eyJpZCI6MTQ2fSwiYXVkIjpbImh0dHA6XC9cL2FwaS55dW5ld3MucHJvamVjdCJdLCJleHAiOjE1NDU4MzAwNjV9.iGOF9CzAUH2ZEoZzw__JkdGrWO0kH9zTh-HzP9hxrfk</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Аутентификация завершилась неудачно.</p><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><p>Аутентифицированному пользователю не разрешен доступ к указанной точке входа API</p></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_currency__id_"><span class="parent">/currency</span>/{id}</a> <span class="methods"><a href="#currency__id__get"><span class="badge badge_get">get</span></a> <a href="#currency__id__put"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a> <a href="#currency__id__delete"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_currency__id_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#currency__id__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Возвращает валюту</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#currency__id__put'" class="list-group-item"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Изменить валюту</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#currency__id__delete'" class="list-group-item"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Удалить валюту</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="currency__id__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/currency</span>/{id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Возвращает валюту</p></div><ul class="nav nav-tabs"><li class="active"><a href="#currency__id__get_request" data-toggle="tab">Request</a></li><li><a href="#currency__id__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="currency__id__get_request"><h3>URI Parameters</h3><ul><li><strong>id</strong>: <em><span class="required">required</span>(integer)</em><p>ID валюты</p></li></ul></div><div class="tab-pane" id="currency__id__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+	"id": 1,
+	"country_id": 1894,
+	"code": "KZT",
+	"name": "Казахский тенге",
+	"description": null,
+	"country": {
+		"id": 1894,
+		"name": "Казахстан",
+		"currency": null
+	}
+}</code></pre></div></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="currency__id__put"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/currency</span>/{id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Изменить валюту</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>bearerAuth</b></div><ul class="nav nav-tabs"><li class="active"><a href="#currency__id__put_request" data-toggle="tab">Request</a></li><li><a href="#currency__id__put_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="currency__id__put_request"><h3>URI Parameters</h3><ul><li><strong>id</strong>: <em><span class="required">required</span>(integer)</em><p>ID валюты</p></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+	"country_id": 1894,
+	"code": "KZT",
+	"name": "Казахский тенге",
+	"description": null
+}</code></pre></div></div><div class="tab-pane" id="currency__id__put_securedby"><h1>Secured by bearerAuth</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>JWT-токен</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImM4NGQyYTU0LTgyY2ItNGY5Ny1hYjJhLWE5MmFmNjM2ZmY1OCJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkueXVuZXdzLnByb2plY3RcL3YxXC9hdXRoIiwic3ViamVjdCI6eyJpZCI6MTQ2fSwiYXVkIjpbImh0dHA6XC9cL2FwaS55dW5ld3MucHJvamVjdCJdLCJleHAiOjE1NDU4MzAwNjV9.iGOF9CzAUH2ZEoZzw__JkdGrWO0kH9zTh-HzP9hxrfk</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Аутентификация завершилась неудачно.</p><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><p>Аутентифицированному пользователю не разрешен доступ к указанной точке входа API</p></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="currency__id__delete"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/currency</span>/{id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Удалить валюту</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>bearerAuth</b></div><ul class="nav nav-tabs"><li class="active"><a href="#currency__id__delete_request" data-toggle="tab">Request</a></li><li><a href="#currency__id__delete_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="currency__id__delete_request"><h3>URI Parameters</h3><ul><li><strong>id</strong>: <em><span class="required">required</span>(integer)</em><p>ID валюты</p></li></ul></div><div class="tab-pane" id="currency__id__delete_securedby"><h1>Secured by bearerAuth</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>JWT-токен</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImM4NGQyYTU0LTgyY2ItNGY5Ny1hYjJhLWE5MmFmNjM2ZmY1OCJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkueXVuZXdzLnByb2plY3RcL3YxXC9hdXRoIiwic3ViamVjdCI6eyJpZCI6MTQ2fSwiYXVkIjpbImh0dHA6XC9cL2FwaS55dW5ld3MucHJvamVjdCJdLCJleHAiOjE1NDU4MzAwNjV9.iGOF9CzAUH2ZEoZzw__JkdGrWO0kH9zTh-HzP9hxrfk</code></pre></div></li></ul><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Аутентификация завершилась неудачно.</p><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><p>Аутентифицированному пользователю не разрешен доступ к указанной точке входа API</p></div></div></div></div></div></div></div></div></div></div></div><div class="col-md-3"><div id="sidebar" class="hidden-print affix" role="complementary"><ul class="nav nav-pills nav-stacked"><li><a href="#auth">/auth</a></li><li><a href="#registration">/registration</a></li><li><a href="#security">/security</a></li><li><a href="#notify_test">/notify-test</a></li><li><a href="#file_storage">/file-storage</a></li><li><a href="#storage_personal">/storage-personal</a></li><li><a href="#rbac_assignment">/rbac-assignment</a></li><li><a href="#rbac_permission">/rbac-permission</a></li><li><a href="#rbac_role">/rbac-role</a></li><li><a href="#user_manage">/user-manage</a></li><li><a href="#personal_settings">/personal-settings</a></li><li><a href="#system_settings">/system-settings</a></li><li><a href="#meta_entity">/meta-entity</a></li><li><a href="#city">/city</a></li><li><a href="#region">/region</a></li><li><a href="#country">/country</a></li><li><a href="#currency">/currency</a></li></ul></div></div></div></div></body></html>

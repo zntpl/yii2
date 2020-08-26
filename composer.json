@@ -1,0 +1,92 @@
+{
+    "name": "yiisoft/yii2-app-advanced",
+    "description": "Yii 2 Advanced Project Template",
+    "keywords": ["yii2", "framework", "advanced", "project template"],
+    "type": "project",
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.2",
+        "yiisoft/yii2": "~2.0.14",
+        "yiisoft/yii2-bootstrap": "~2.0.0",
+        "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0",
+
+        "znsandbox/sandbox": "dev-master",
+        "znsandbox/yii2-legacy": "dev-master",
+        "znsandbox/telegram": "dev-master",
+
+        "znbundle/article": "dev-master",
+        "znbundle/messenger": "dev-master",
+        "znbundle/queue": "dev-master",
+        "znbundle/reference": "dev-master",
+        "znbundle/storage": "dev-master",
+        "znbundle/user": "dev-master",
+
+        "zncore/db": "dev-master",
+        "zncore/ddd": "dev-master",
+
+        "znlib/rest": "dev-master",
+        "znlib/socket": "dev-master",
+
+        "zncrypt/jwt": "dev-master",
+        "zncrypt/pki": "dev-master",
+        "zncrypt/tunnel": "dev-master",
+
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "yiisoft/yii2-debug": "~2.1.0",
+        "yiisoft/yii2-gii": "~2.1.0",
+        "yiisoft/yii2-faker": "~2.0.0",
+        "zntool/dev": "dev-master",
+        "zntool/test": "dev-master",
+        "zndoc/rest-api": "v0.0.4",
+        "symfony/debug-pack": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Packages\\": "Packages"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "secure-http": false,
+        "process-timeout": 1800,
+        "fxp-asset": {
+            "enabled": false
+        }
+    },
+    "extra": {
+        "installer-types": [
+            "bower-asset",
+            "npm-asset"
+        ],
+        "installer-paths": {
+            "vendor/{$vendor}/{$name}/": [
+                "type:bower-asset",
+                "type:npm-asset"
+            ]
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/znsandbox/sandbox.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/znsandbox/yii2-legacy"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/znsandbox/telegram"
+        }
+    ]
+}

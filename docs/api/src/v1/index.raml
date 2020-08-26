@@ -1,0 +1,32 @@
+#%RAML 1.0
+title: Demo Yii template
+description: ""
+documentation:
+ - title: Введение
+   content: !include ../../../../vendor/zndoc/rest-api/src/traits/intro.markdown
+version: v1
+protocols: [ HTTP, HTTPS ]
+baseUri: http://api.example.com/api/v1
+mediaType: [ application/json ]
+securitySchemes: !include ../../../../vendor/zndoc/rest-api/src/securitySchemes/index.raml
+traits: !include ../../../../vendor/zndoc/rest-api/src/traits/index.raml
+
+/auth:         !include ../../../../vendor/php7lab/yii2-legacy/src/yii2bundle/account/api/v3/docs/auth/api.raml
+/registration: !include ../../../../vendor/php7lab/yii2-legacy/src/yii2bundle/account/api/v3/docs/registration/api.raml
+/security:     !include ../../../../vendor/php7lab/yii2-legacy/src/yii2bundle/account/api/v3/docs/security/api.raml
+
+/notify-test:     !include ../../../../vendor/php7lab/yii2-legacy/src/yii2bundle/notify/api/docs/notify-test/api.raml
+/file-storage:     !include ../../../../vendor/php7lab/yii2-legacy/src/yubundle/storage/api/docs/file-storage/api.raml
+/storage-personal:     !include ../../../../vendor/php7lab/yii2-legacy/src/yubundle/storage/api/docs/storage-personal/api.raml
+/rbac-assignment:     !include ../../../../vendor/php7lab/yii2-legacy/src/yii2bundle/rbac/api/docs/rbac-assignment/api.raml
+/rbac-permission:     !include ../../../../vendor/php7lab/yii2-legacy/src/yii2bundle/rbac/api/docs/rbac-permission/api.raml
+/rbac-role:     !include ../../../../vendor/php7lab/yii2-legacy/src/yii2bundle/rbac/api/docs/rbac-role/api.raml
+/user-manage:     !include ../../../../vendor/php7lab/yii2-legacy/src/yubundle/common/dev/api/docs/user-manage/api.raml
+/personal-settings:     !include ../../../../vendor/php7lab/yii2-legacy/src/yii2bundle/settings/api/v1/docs/personal/api.raml
+/system-settings:     !include ../../../../vendor/php7lab/yii2-legacy/src/yii2bundle/settings/api/v1/docs/system/api.raml
+/meta-entity:     !include ../../../../vendor/php7lab/yii2-legacy/src/yii2bundle/model/api/v1/docs/meta-entity/api.raml
+
+/city: !include ../../../../vendor/php7lab/yii2-legacy/src/yii2bundle/geo/api/docs/city/api.raml
+/region:     !include ../../../../vendor/php7lab/yii2-legacy/src/yii2bundle/geo/api/docs/region/api.raml
+/country:     !include ../../../../vendor/php7lab/yii2-legacy/src/yii2bundle/geo/api/docs/country/api.raml
+/currency:     !include ../../../../vendor/php7lab/yii2-legacy/src/yii2bundle/geo/api/docs/currency/api.raml
