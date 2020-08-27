@@ -9,6 +9,9 @@
         "yiisoft/yii2": "~2.0.14",
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0",
+        "yiisoft/yii2-queue": "^2.0",
+        "creocoder/yii2-flysystem": "^0.9.0",
+        "mdmsoft/yii2-admin": "~2.0",
 
         "znsandbox/sandbox": "dev-master",
         "znsandbox/yii2-legacy": "dev-master",
