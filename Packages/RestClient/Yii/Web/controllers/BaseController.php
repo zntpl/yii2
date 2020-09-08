@@ -2,7 +2,7 @@
 
 namespace Packages\RestClient\Yii\Web\controllers;
 
-use PhpLab\Core\Exceptions\NotFoundException;
+use ZnCore\Base\Exceptions\NotFoundException;
 use Packages\RestClient\Domain\Entities\ProjectEntity;
 use Packages\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
 use Yii;

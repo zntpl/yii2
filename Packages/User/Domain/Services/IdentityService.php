@@ -4,7 +4,7 @@ namespace Packages\User\Domain\Services;
 
 use Packages\User\Domain\Interfaces\Repositories\IdentityRepositoryInterface;
 use Packages\User\Domain\Interfaces\Services\IdentityServiceInterface;
-use PhpLab\Core\Domain\Base\BaseCrudService;
+use ZnCore\Base\Domain\Base\BaseCrudService;
 
 class IdentityService extends BaseCrudService implements IdentityServiceInterface
 {

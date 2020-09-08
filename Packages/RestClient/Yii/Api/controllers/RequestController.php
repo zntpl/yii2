@@ -8,7 +8,7 @@ use Packages\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
 use Packages\RestClient\Domain\Interfaces\Services\TransportServiceInterface;
 use Packages\RestClient\Yii\Web\helpers\AdapterHelper;
 use Packages\RestClient\Yii\Web\models\RequestForm;
-use PhpLab\Rest\Helpers\RestResponseHelper;
+use ZnLib\Rest\Helpers\RestResponseHelper;
 use Yii;
 use yii\base\Module;
 use RocketLab\Bundle\Rest\Base\BaseController;

@@ -2,7 +2,7 @@
 
 namespace common\Bootstrap;
 
-use PhpLab\Core\Helpers\ComposerHelper;
+use ZnCore\Base\Helpers\ComposerHelper;
 
 class Autoloader
 {

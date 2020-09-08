@@ -2,7 +2,7 @@
 
 namespace Packages\RestClient\Domain\Enums;
 
-use PhpLab\Core\Domain\Base\BaseEnum;
+use ZnCore\Base\Domain\Base\BaseEnum;
 
 class RestClientPermissionEnum extends BaseEnum
 {

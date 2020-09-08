@@ -2,8 +2,8 @@
 
 namespace Packages\RestClient\Domain\Interfaces\Services;
 
-use PhpLab\Core\Domain\Interfaces\Service\CrudServiceInterface;
-use PhpLab\Core\Exceptions\NotFoundException;
+use ZnCore\Base\Domain\Interfaces\Service\CrudServiceInterface;
+use ZnCore\Base\Exceptions\NotFoundException;
 use Packages\RestClient\Domain\Entities\ProjectEntity;
 
 interface ProjectServiceInterface extends CrudServiceInterface

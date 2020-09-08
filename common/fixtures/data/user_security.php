@@ -1,10 +1,10 @@
 <?php
 
-use PhpLab\Eloquent\Fixture\Helpers\FixtureFactoryHelper;
+use ZnCore\Db\Fixture\Helpers\FixtureFactoryHelper;
 
 if( ! class_exists(UserSecurityFixture::class)) {
 
-    class UserSecurityFixture extends \PhpLab\Eloquent\Fixture\Libs\DataFixture
+    class UserSecurityFixture extends \ZnCore\Db\Fixture\Libs\DataFixture
     {
 
         public function deps()

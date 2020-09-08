@@ -4,15 +4,15 @@ namespace Packages\RestClient\Domain\Services;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
-use PhpLab\Core\Domain\Base\BaseService;
-use PhpLab\Core\Exceptions\NotFoundException;
+use ZnCore\Base\Domain\Base\BaseService;
+use ZnCore\Base\Exceptions\NotFoundException;
 use Packages\RestClient\Domain\Entities\ProjectEntity;
 use Packages\RestClient\Domain\Interfaces\Services\AuthorizationServiceInterface;
 use Packages\RestClient\Domain\Interfaces\Services\TransportServiceInterface;
 use Packages\RestClient\Yii\Web\helpers\AdapterHelper;
 use Packages\RestClient\Yii\Web\models\RequestForm;
-use PhpLab\Rest\Contract\Authorization\BearerAuthorization;
-use PhpLab\Rest\Contract\Client\RestClient;
+use ZnLib\Rest\Contract\Authorization\BearerAuthorization;
+use ZnLib\Rest\Contract\Client\RestClient;
 use Psr\Http\Message\ResponseInterface;
 
 class TransportService extends BaseService implements TransportServiceInterface

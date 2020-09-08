@@ -3,8 +3,8 @@
 namespace Packages\RestClient\Domain\Repositories\Eloquent;
 
 use Illuminate\Support\Collection;
-use PhpLab\Core\Domain\Libs\Query;
-use PhpLab\Eloquent\Db\Base\BaseEloquentCrudRepository;
+use ZnCore\Base\Domain\Libs\Query;
+use ZnCore\Db\Db\Base\BaseEloquentCrudRepository;
 use Packages\RestClient\Domain\Entities\AuthorizationEntity;
 use Packages\RestClient\Domain\Interfaces\Repositories\AuthorizationRepositoryInterface;
 

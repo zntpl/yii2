@@ -4,7 +4,7 @@ namespace Packages\RestClient\Domain\Services;
 
 use Packages\RestClient\Domain\Interfaces\Repositories\AccessRepositoryInterface;
 use Packages\RestClient\Domain\Interfaces\Services\AccessServiceInterface;
-use PhpLab\Core\Domain\Base\BaseCrudService;
+use ZnCore\Base\Domain\Base\BaseCrudService;
 
 class AccessService extends BaseCrudService implements AccessServiceInterface
 {

@@ -5,7 +5,7 @@ use RocketLab\Bundle\App\Libs\Loader\AdvancedLoader;
 use RocketLab\Bundle\App\Libs\Rails;
 
 require __DIR__ . '/../../vendor/autoload.php';
-PhpLab\Core\Libs\Env\DotEnvHelper::init(__DIR__ . '/../..');
+ZnCore\Base\Libs\Env\DotEnvHelper::init(__DIR__ . '/../..');
 $_ENV['PROJECT_DIR'] = realpath(__DIR__ . '/../..');
 $_ENV['APP_DIR'] = realpath(__DIR__ . '/..');
 $_ENV['APP_NAME'] = 'backend';

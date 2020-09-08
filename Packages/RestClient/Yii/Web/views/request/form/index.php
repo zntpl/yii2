@@ -16,8 +16,8 @@ use Packages\RestClient\Yii\Web\helpers\Authorization;
 //$baseUrl = $projectEntity->getUrl() . '/';
 $model->addEmptyRows();
 
-$urlArray = \PhpLab\Core\Domain\Helpers\EntityHelper::getColumn($environmentCollection, 'url');
-$titleArray = \PhpLab\Core\Domain\Helpers\EntityHelper::getColumn($environmentCollection, 'title');
+$urlArray = \ZnCore\Base\Domain\Helpers\EntityHelper::getColumn($environmentCollection, 'url');
+$titleArray = \ZnCore\Base\Domain\Helpers\EntityHelper::getColumn($environmentCollection, 'title');
 //$urlOptoins = array_combine($urlArray, $urlArray);
 $urlOptoins = array_combine($urlArray, $titleArray);
 

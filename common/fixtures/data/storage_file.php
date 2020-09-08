@@ -1,9 +1,9 @@
 <?php
 
-use PhpBundle\Crypt\Domain\Enums\HashAlgoEnum;
-use PhpLab\Eloquent\Fixture\Helpers\FixtureFactoryHelper;
+use ZnCrypt\Base\Domain\Enums\HashAlgoEnum;
+use ZnCore\Db\Fixture\Helpers\FixtureFactoryHelper;
 
-class StorageFileFixture extends \PhpLab\Eloquent\Fixture\Libs\DataFixture {
+class StorageFileFixture extends \ZnCore\Db\Fixture\Libs\DataFixture {
 
     public function deps()
     {

@@ -2,9 +2,9 @@
 
 namespace Packages\RestClient\Yii\Web\controllers;
 
-use PhpLab\Core\Enums\Http\HttpHeaderEnum;
-use PhpLab\Core\Helpers\UploadHelper;
-use PhpLab\Core\Libs\I18Next\Interfaces\Services\TranslationServiceInterface;
+use ZnCore\Base\Enums\Http\HttpHeaderEnum;
+use ZnCore\Base\Helpers\UploadHelper;
+use ZnCore\Base\Libs\I18Next\Interfaces\Services\TranslationServiceInterface;
 use Packages\RestClient\Domain\Entities\BookmarkEntity;
 use Packages\RestClient\Domain\Enums\RestClientPermissionEnum;
 use Packages\RestClient\Domain\Interfaces\Services\BookmarkServiceInterface;
@@ -12,8 +12,8 @@ use Packages\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
 use Packages\RestClient\Domain\Interfaces\Services\TransportServiceInterface;
 use Packages\RestClient\Yii\Web\helpers\AdapterHelper;
 use Packages\RestClient\Yii\Web\models\RequestForm;
-use PhpLab\Test\Helpers\RestHelper;
-use PhpLab\Rest\Helpers\RestResponseHelper;
+use ZnTool\Test\Helpers\RestHelper;
+use ZnLib\Rest\Helpers\RestResponseHelper;
 use Yii;
 use yii\base\Module;
 use Packages\RestClient\Domain\Interfaces\Services\EnvironmentServiceInterface;

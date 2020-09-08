@@ -2,9 +2,9 @@
 
 namespace Packages\RestClient\Domain\Entities;
 
-use PhpLab\Core\Domain\Interfaces\Entity\EntityIdInterface;
-use PhpLab\Core\Domain\Interfaces\Entity\ValidateEntityInterface;
-use PhpLab\Core\Enums\Http\HttpMethodEnum;
+use ZnCore\Base\Domain\Interfaces\Entity\EntityIdInterface;
+use ZnCore\Base\Domain\Interfaces\Entity\ValidateEntityInterface;
+use ZnCore\Base\Enums\Http\HttpMethodEnum;
 use Packages\RestClient\Domain\Helpers\BookmarkHelper;
 use Symfony\Component\Validator\Constraints as Assert;
 

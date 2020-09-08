@@ -6,15 +6,15 @@
 use common\enums\rbac\PermissionEnum;
 use common\enums\rbac\RoleEnum;
 //use Packages\Product\Domain\Enums\ComplexPermissionEnum;
-use PhpLab\Core\Domain\Base\BaseEnum;
-//use PhpLab\Sandbox\Reference\Enums\ReferenceBookPermissionEnum;
+use ZnCore\Base\Domain\Base\BaseEnum;
+//use ZnSandbox\Sandbox\Reference\Enums\ReferenceBookPermissionEnum;
 use Packages\RestClient\Domain\Enums\RestClientPermissionEnum;
 use yii\test\Fixture;
 use yii2bundle\account\domain\v3\enums\AccountPermissionEnum;
 use yii2bundle\geo\domain\enums\GeoPermissionEnum;
 use yii2bundle\rbac\domain\enums\RbacPermissionEnum;
-use PhpLab\Core\Legacy\Yii\Helpers\FileHelper;
-use PhpLab\Core\Libs\Benchmark;
+use ZnCore\Base\Legacy\Yii\Helpers\FileHelper;
+use ZnCore\Base\Libs\Benchmark;
 use RocketLab\Bundle\App\Libs\Kernel;
 use RocketLab\Bundle\App\Libs\Loader\AdvancedLoader;
 use RocketLab\Bundle\App\Libs\Rails;
@@ -32,7 +32,7 @@ $application = new yii\web\Application($mainConfig);
 
 
 
-class AuthItemFixture extends \PhpLab\Eloquent\Fixture\Libs\DataFixture
+class AuthItemFixture extends \ZnCore\Db\Fixture\Libs\DataFixture
 {
 
     private $authManager;

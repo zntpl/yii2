@@ -5,7 +5,7 @@ use RocketLab\Bundle\App\Libs\Loader\AdvancedLoader;
 use RocketLab\Bundle\App\Libs\Rails;
 
 $_ENV['APP_ENV'] = 'test';
-PhpLab\Core\Libs\Env\DotEnvHelper::init();
+ZnCore\Base\Libs\Env\DotEnvHelper::init();
 $_ENV['PROJECT_DIR'] = realpath(__DIR__ . '/..');
 $_ENV['APP_DIR'] = realpath(__DIR__ . '/../console');
 $_ENV['APP_NAME'] = 'console';

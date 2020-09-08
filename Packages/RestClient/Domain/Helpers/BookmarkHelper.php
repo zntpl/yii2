@@ -2,9 +2,9 @@
 
 namespace Packages\RestClient\Domain\Helpers;
 
-use PhpBundle\Crypt\Domain\Enums\HashAlgoEnum;
-use PhpBundle\Crypt\Domain\Helpers\SafeBase64Helper;
-use PhpLab\Eloquent\Db\Helpers\Manager;
+use ZnCrypt\Base\Domain\Enums\HashAlgoEnum;
+use ZnCrypt\Base\Domain\Helpers\SafeBase64Helper;
+use ZnCore\Db\Db\Helpers\Manager;
 use Packages\RestClient\Domain\Entities\BookmarkEntity;
 use Packages\RestClient\Domain\Repositories\Eloquent\BookmarkRepository;
 use Packages\RestClient\Domain\Services\BookmarkService;

@@ -3,7 +3,7 @@
 namespace Migrations;
 
 use Illuminate\Database\Schema\Blueprint;
-use PhpLab\Eloquent\Migration\Base\BaseCreateTableMigration;
+use ZnCore\Db\Migration\Base\BaseCreateTableMigration;
 
 if ( ! class_exists(m_2020_03_05_114403_create_identity_table::class)) {
 

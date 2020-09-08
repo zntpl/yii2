@@ -3,10 +3,10 @@
 namespace Tests\Api;
 
 use GuzzleHttp\RequestOptions;
-use PhpLab\Core\Enums\Http\HttpHeaderEnum;
-use PhpLab\Core\Enums\Http\HttpMethodEnum;
-use PhpLab\Core\Enums\Http\HttpStatusCodeEnum;
-use PhpLab\Test\Base\BaseRestApiTest;
+use ZnCore\Base\Enums\Http\HttpHeaderEnum;
+use ZnCore\Base\Enums\Http\HttpMethodEnum;
+use ZnCore\Base\Enums\Http\HttpStatusCodeEnum;
+use ZnTool\Test\Base\BaseRestApiTest;
 
 class AuthTest extends BaseRestApiTest
 {

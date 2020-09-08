@@ -2,7 +2,7 @@
 
 namespace Packages\User\Domain\Repositories\Eloquent;
 
-use PhpLab\Eloquent\Db\Base\BaseEloquentCrudRepository;
+use ZnCore\Db\Db\Base\BaseEloquentCrudRepository;
 use Packages\User\Domain\Interfaces\Repositories\IdentityRepositoryInterface;
 use Packages\User\Domain\Entities\IdentityEntity;
 

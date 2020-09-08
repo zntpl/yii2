@@ -2,7 +2,7 @@
 
 namespace Packages\RestClient\Yii\Web\helpers;
 
-use PhpLab\Core\Domain\Helpers\EntityHelper;
+use ZnCore\Base\Domain\Helpers\EntityHelper;
 use Packages\RestClient\Domain\Entities\BookmarkEntity;
 use yii\base\Model;
 use yii2bundle\rest\domain\entities\RequestEntity;

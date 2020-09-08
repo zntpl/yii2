@@ -2,11 +2,11 @@
 
 namespace Packages\RestClient\Yii\Web\Widgets;
 
-use PhpLab\Core\Enums\Http\HttpHeaderEnum;
+use ZnCore\Base\Enums\Http\HttpHeaderEnum;
 use Packages\RestClient\Yii\Web\formatters\RawFormatter;
 use Packages\RestClient\Yii\Web\HighlightAsset;
-use PhpLab\Test\Helpers\RestHelper;
-use PhpLab\Rest\Helpers\RestResponseHelper;
+use ZnTool\Test\Helpers\RestHelper;
+use ZnLib\Rest\Helpers\RestResponseHelper;
 use yii\base\Widget;
 use yii\helpers\Html;
 

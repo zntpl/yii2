@@ -2,7 +2,7 @@
 
 namespace common\enums\rbac;
 
-use PhpLab\Core\Domain\Base\BaseEnum;
+use ZnCore\Base\Domain\Base\BaseEnum;
 
 class PermissionEnum extends BaseEnum {
 

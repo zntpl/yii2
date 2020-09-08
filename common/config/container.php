@@ -1,7 +1,7 @@
 <?php
 
 $definitions = [
-    'PhpLab\Sandbox\Dashboard\Domain\Interfaces\Services\DocServiceInterface' => 'PhpLab\Sandbox\Dashboard\Domain\Services\DocService',
+    'ZnSandbox\Sandbox\Dashboard\Domain\Interfaces\Services\DocServiceInterface' => 'ZnSandbox\Sandbox\Dashboard\Domain\Services\DocService',
 ];
 
 $definitions = array_merge($definitions, require(__DIR__ . '/../../Packages/RestClient/Domain/config/container.php'));
@@ -12,9 +12,9 @@ $definitions = array_merge($definitions, require(__DIR__ . '/../../vendor/znbund
 return [
     'definitions' => $definitions,
     'singletons' => [
-        //'PhpLab\Core\Libs\I18Next\Interfaces\Services\TranslationServiceInterface' => 'PhpLab\Core\Libs\I18Next\Services\TranslationService',
-        'PhpLab\Core\Libs\I18Next\Interfaces\Services\TranslationServiceInterface' => function() {
-            $service = new \PhpLab\Core\Libs\I18Next\Services\TranslationService([], Yii::$app->language);
+        //'ZnCore\Base\Libs\I18Next\Interfaces\Services\TranslationServiceInterface' => 'ZnCore\Base\Libs\I18Next\Services\TranslationService',
+        'ZnCore\Base\Libs\I18Next\Interfaces\Services\TranslationServiceInterface' => function() {
+            $service = new \ZnCore\Base\Libs\I18Next\Services\TranslationService([], Yii::$app->language);
             return $service;
         },
         \Psr\Container\ContainerInterface::class => function() use($definitions) {

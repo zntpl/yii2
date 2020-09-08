@@ -3,9 +3,9 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-use PhpLab\Core\Legacy\Yii\Helpers\FileHelper;
-use PhpLab\Core\Libs\Benchmark;
-use PhpLab\Rest\Helpers\CorsHelper;
+use ZnCore\Base\Legacy\Yii\Helpers\FileHelper;
+use ZnCore\Base\Libs\Benchmark;
+use ZnLib\Rest\Helpers\CorsHelper;
 use RocketLab\Bundle\App\Libs\Kernel;
 use RocketLab\Bundle\App\Libs\Loader\AdvancedLoader;
 use RocketLab\Bundle\App\Libs\Rails;
@@ -32,7 +32,7 @@ require __DIR__ . '/../../vendor/autoload.php';
 
 CorsHelper::autoload();
 
-PhpLab\Core\Libs\Env\DotEnvHelper::init(__DIR__ . '/../..');
+ZnCore\Base\Libs\Env\DotEnvHelper::init(__DIR__ . '/../..');
 $_ENV['PROJECT_DIR'] = realpath(__DIR__ . '/../..');
 $_ENV['APP_DIR'] = realpath(__DIR__ . '/..');
 $_ENV['APP_NAME'] = 'frontend';

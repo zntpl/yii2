@@ -4,8 +4,8 @@ namespace Packages\RestClient\Yii\Web\controllers;
 
 use common\enums\rbac\PermissionEnum;
 use kartik\alert\Alert;
-use PhpLab\Core\Domain\Helpers\EntityHelper;
-use PhpLab\Core\Libs\I18Next\Facades\I18Next;
+use ZnCore\Base\Domain\Helpers\EntityHelper;
+use ZnCore\Base\Libs\I18Next\Facades\I18Next;
 use Packages\RestClient\Domain\Enums\RestClientPermissionEnum;
 use Packages\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
 use Packages\RestClient\Yii\Web\models\ProjectForm;

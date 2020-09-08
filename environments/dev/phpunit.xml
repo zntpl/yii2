@@ -8,35 +8,35 @@
             <directory>tests/</directory>
         </testsuite>
 
-        <!--<testsuite name="PhpLab\Bundle Test Suite">
+        <!--<testsuite name="ZnSandbox\Bundle Test Suite">
             <directory>vendor/php7lab/bundle/tests/</directory>
         </testsuite>-->
 
-        <testsuite name="PhpLab\Core Test Suite">
+        <testsuite name="ZnCore\Base Test Suite">
             <directory>vendor/php7lab/core/tests/</directory>
         </testsuite>
 
-        <testsuite name="PhpLab\Dev Test Suite">
+        <testsuite name="ZnTool\Dev Test Suite">
             <directory>vendor/zntool/dev/tests/</directory>
         </testsuite>
 
-        <testsuite name="PhpLab\Eloquent Test Suite">
+        <testsuite name="ZnCore\Db Test Suite">
             <directory>vendor/zncore/db/tests/</directory>
         </testsuite>
 
-        <testsuite name="PhpLab\Rest Test Suite">
+        <testsuite name="ZnLib\Rest Test Suite">
             <directory>vendor/php7lab/rest/tests/</directory>
         </testsuite>
 
-        <!--<testsuite name="PhpLab\Sandbox Test Suite">
+        <!--<testsuite name="ZnSandbox\Sandbox Test Suite">
             <directory>vendor/php7lab/sandbox/tests/</directory>
         </testsuite>-->
 
-        <testsuite name="PhpLab\Test Test Suite">
+        <testsuite name="ZnTool\Test Test Suite">
             <directory>vendor/zntool/test/tests/</directory>
         </testsuite>
 
-        <testsuite name="PhpLab\Web Test Suite">
+        <testsuite name="ZnSandbox\Web Test Suite">
             <directory>vendor/php7lab/web/tests/</directory>
         </testsuite>
 

@@ -2,7 +2,7 @@
 
 namespace Packages\RestClient\Domain\Repositories\Eloquent;
 
-use PhpLab\Eloquent\Db\Base\BaseEloquentCrudRepository;
+use ZnCore\Db\Db\Base\BaseEloquentCrudRepository;
 use Packages\RestClient\Domain\Entities\EnvironmentEntity;
 use Packages\RestClient\Domain\Interfaces\Repositories\EnvironmentRepositoryInterface;
 
