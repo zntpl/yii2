@@ -14,8 +14,6 @@
         "mdmsoft/yii2-admin": "~2.0",
 
         "znsandbox/sandbox": "dev-master",
-        "znsandbox/yii2-legacy": "dev-master",
-        "znsandbox/telegram": "dev-master",
 
         "znbundle/article": "dev-master",
         "znbundle/messenger": "dev-master",
@@ -77,18 +75,6 @@
         {
             "type": "composer",
             "url": "https://asset-packagist.org"
-        },
-        {
-            "type": "git",
-            "url": "https://github.com/znsandbox/sandbox.git"
-        },
-        {
-            "type": "git",
-            "url": "https://github.com/znsandbox/yii2-legacy"
-        },
-        {
-            "type": "git",
-            "url": "https://github.com/znsandbox/telegram"
         }
     ]
 }
