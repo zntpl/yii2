@@ -4,7 +4,7 @@ namespace Packages\RestClient\Yii\Web\controllers;
 
 use common\enums\rbac\PermissionEnum;
 use kartik\alert\Alert;
-use ZnCore\Base\Domain\Helpers\EntityHelper;
+use ZnCore\Domain\Helpers\EntityHelper;
 use ZnCore\Base\Libs\I18Next\Facades\I18Next;
 use Packages\RestClient\Domain\Enums\RestClientPermissionEnum;
 use Packages\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;

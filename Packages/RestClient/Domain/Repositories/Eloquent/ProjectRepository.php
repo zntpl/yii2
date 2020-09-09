@@ -2,7 +2,7 @@
 
 namespace Packages\RestClient\Domain\Repositories\Eloquent;
 
-use ZnCore\Base\Domain\Libs\Query;
+use ZnCore\Domain\Libs\Query;
 use ZnCore\Db\Db\Base\BaseEloquentCrudRepository;
 use Packages\RestClient\Domain\Entities\ProjectEntity;
 use Packages\RestClient\Domain\Interfaces\Repositories\ProjectRepositoryInterface;

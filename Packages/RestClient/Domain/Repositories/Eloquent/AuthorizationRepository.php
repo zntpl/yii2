@@ -3,7 +3,7 @@
 namespace Packages\RestClient\Domain\Repositories\Eloquent;
 
 use Illuminate\Support\Collection;
-use ZnCore\Base\Domain\Libs\Query;
+use ZnCore\Domain\Libs\Query;
 use ZnCore\Db\Db\Base\BaseEloquentCrudRepository;
 use Packages\RestClient\Domain\Entities\AuthorizationEntity;
 use Packages\RestClient\Domain\Interfaces\Repositories\AuthorizationRepositoryInterface;

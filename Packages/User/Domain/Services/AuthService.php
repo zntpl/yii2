@@ -5,7 +5,7 @@ namespace Packages\User\Domain\Services;
 use Packages\User\Domain\Entities\IdentityEntity;
 use Packages\User\Domain\Interfaces\Repositories\IdentityRepositoryInterface;
 use Packages\User\Domain\Interfaces\Services\AuthServiceInterface;
-use ZnCore\Base\Domain\Base\BaseCrudService;
+use ZnCore\Domain\Base\BaseCrudService;
 
 class AuthService extends BaseCrudService implements AuthServiceInterface
 {

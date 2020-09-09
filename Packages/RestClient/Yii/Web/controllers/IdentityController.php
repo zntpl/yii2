@@ -4,8 +4,8 @@ namespace Packages\RestClient\Yii\Web\controllers;
 
 use kartik\alert\Alert;
 use Packages\User\Domain\Interfaces\Services\IdentityServiceInterface;
-use ZnCore\Base\Domain\Exceptions\UnprocessibleEntityException;
-use ZnCore\Base\Domain\Helpers\EntityHelper;
+use ZnCore\Domain\Exceptions\UnprocessibleEntityException;
+use ZnCore\Domain\Helpers\EntityHelper;
 use ZnCore\Base\Libs\I18Next\Facades\I18Next;
 use Packages\RestClient\Domain\Interfaces\Services\AccessServiceInterface;
 use Packages\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;

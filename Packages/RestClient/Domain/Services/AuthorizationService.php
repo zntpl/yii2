@@ -3,7 +3,7 @@
 namespace Packages\RestClient\Domain\Services;
 
 use Illuminate\Support\Collection;
-use ZnCore\Base\Domain\Base\BaseCrudService;
+use ZnCore\Domain\Base\BaseCrudService;
 use Packages\RestClient\Domain\Entities\AuthorizationEntity;
 use Packages\RestClient\Domain\Interfaces\Repositories\AuthorizationRepositoryInterface;
 use Packages\RestClient\Domain\Interfaces\Services\AuthorizationServiceInterface;

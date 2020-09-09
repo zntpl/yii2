@@ -3,13 +3,13 @@
 namespace Packages\RestClient\Domain\Services;
 
 use Illuminate\Support\Collection;
-use ZnCore\Base\Domain\Helpers\EntityHelper;
+use ZnCore\Domain\Helpers\EntityHelper;
 use ZnCore\Base\Exceptions\NotFoundException;
 use Packages\RestClient\Domain\Entities\BookmarkEntity;
 use Packages\RestClient\Domain\Enums\StatusEnum;
 use Packages\RestClient\Domain\Interfaces\Repositories\BookmarkRepositoryInterface;
 use Packages\RestClient\Domain\Interfaces\Services\BookmarkServiceInterface;
-use ZnCore\Base\Domain\Base\BaseCrudService;
+use ZnCore\Domain\Base\BaseCrudService;
 
 class BookmarkService extends BaseCrudService implements BookmarkServiceInterface
 {

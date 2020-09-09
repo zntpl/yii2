@@ -2,7 +2,7 @@
 
 namespace common\enums\rbac;
 
-use ZnCore\Base\Domain\Base\BaseEnum;
+use ZnCore\Domain\Base\BaseEnum;
 
 class RoleEnum extends BaseEnum {
 

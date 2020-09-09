@@ -4,7 +4,7 @@ namespace Packages\RestClient\Domain\Services;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
-use ZnCore\Base\Domain\Base\BaseService;
+use ZnCore\Domain\Base\BaseService;
 use ZnCore\Base\Exceptions\NotFoundException;
 use Packages\RestClient\Domain\Entities\ProjectEntity;
 use Packages\RestClient\Domain\Interfaces\Services\AuthorizationServiceInterface;

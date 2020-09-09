@@ -3,7 +3,7 @@
 namespace Packages\RestClient\Domain\Interfaces\Services;
 
 use Illuminate\Support\Collection;
-use ZnCore\Base\Domain\Interfaces\Service\CrudServiceInterface;
+use ZnCore\Domain\Interfaces\Service\CrudServiceInterface;
 use ZnCore\Base\Exceptions\NotFoundException;
 use Packages\RestClient\Domain\Entities\AuthorizationEntity;
 
