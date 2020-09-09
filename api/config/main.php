@@ -57,14 +57,14 @@ return [
         'urlManager' => [
             'showScriptName' => false,
             'rules' => array_merge(
-                //include __DIR__ . '/../../vendor/znsandbox/yii2-legacy/src/yii2bundle/geo/api/config/routes.php',
+                //include __DIR__ . '/../../vendor/znsandbox/sandbox/src/YiiLegacy/yii2bundle/geo/api/config/routes.php',
                 include __DIR__ . '/../../vendor/znbundle/messenger/src/Yii/Api/config/routes.php',
-                include __DIR__ . '/../../vendor/znsandbox/yii2-legacy/src/yii2bundle/account/api/v3/config/routes.php',
-                include __DIR__ . '/../../vendor/znsandbox/yii2-legacy/src/rocket-php-lab/Bundle/Dashboard/Api/config/routes.php',
+                include __DIR__ . '/../../vendor/znsandbox/sandbox/src/YiiLegacy/yii2bundle/account/api/v3/config/routes.php',
+                include __DIR__ . '/../../vendor/znsandbox/sandbox/src/YiiLegacy/rocket-php-lab/Bundle/Dashboard/Api/config/routes.php',
                 include __DIR__ . '/../../Packages/RestClient/Yii/Api/config/routes.php',
-                //include __DIR__ . '/../../vendor/znsandbox/yii2-legacy/src/yubundle/storage/api/config/routes.php',
-                //include __DIR__ . '/../../vendor/znsandbox/yii2-legacy/src/yubundle/reference/api/config/routes.php',
-                include __DIR__ . '/../../vendor/znsandbox/yii2-legacy/src/yii2bundle/rbac/api/config/routes.php'
+                //include __DIR__ . '/../../vendor/znsandbox/sandbox/src/YiiLegacy/yubundle/storage/api/config/routes.php',
+                //include __DIR__ . '/../../vendor/znsandbox/sandbox/src/YiiLegacy/yubundle/reference/api/config/routes.php',
+                include __DIR__ . '/../../vendor/znsandbox/sandbox/src/YiiLegacy/yii2bundle/rbac/api/config/routes.php'
             ),
         ],
         'formatter' => [
