@@ -5,7 +5,7 @@ namespace Packages\RestClient\Yii\Api\controllers;
 use Packages\RestClient\Domain\Enums\RestClientPermissionEnum;
 use Packages\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
 use yii\base\Module;
-use RocketLab\Bundle\Rest\Base\BaseCrudController;
+use ZnLib\Rest\Yii2\Base\BaseCrudController;
 
 class ProjectController extends BaseCrudController
 {

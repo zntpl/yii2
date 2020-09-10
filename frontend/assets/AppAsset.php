@@ -2,7 +2,7 @@
 
 namespace frontend\assets;
 
-use RocketLab\Bundle\Toastr\assets\ToastrAsset;
+use ZnSandbox\Sandbox\Html\Yii2\Widgets\Toastr\assets\ToastrAsset;
 use yii\web\AssetBundle;
 
 /**

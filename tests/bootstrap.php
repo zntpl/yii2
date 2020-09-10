@@ -1,8 +1,8 @@
 <?php
 
-use RocketLab\Bundle\App\Libs\Kernel;
-use RocketLab\Bundle\App\Libs\Loader\AdvancedLoader;
-use RocketLab\Bundle\App\Libs\Rails;
+use ZnSandbox\Sandbox\App\Kernel;
+use ZnSandbox\Sandbox\App\Loader\AdvancedLoader;
+use ZnSandbox\Sandbox\App\Rails;
 
 $_ENV['APP_ENV'] = 'test';
 ZnCore\Base\Libs\Env\DotEnvHelper::init();

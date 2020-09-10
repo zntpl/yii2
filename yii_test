@@ -1,9 +1,9 @@
 #!/usr/bin/env php
 <?php
 
-use RocketLab\Bundle\App\Libs\Kernel;
-use RocketLab\Bundle\App\Libs\Loader\AdvancedLoader;
-use RocketLab\Bundle\App\Libs\Rails;
+use ZnSandbox\Sandbox\App\Kernel;
+use ZnSandbox\Sandbox\App\Loader\AdvancedLoader;
+use ZnSandbox\Sandbox\App\Rails;
 
 require __DIR__ . '/vendor/autoload.php';
 $_ENV['APP_ENV'] = 'test';

@@ -11,7 +11,7 @@ use Packages\RestClient\Yii\Web\models\RequestForm;
 use ZnLib\Rest\Helpers\RestResponseHelper;
 use Yii;
 use yii\base\Module;
-use RocketLab\Bundle\Rest\Base\BaseController;
+use ZnLib\Rest\Yii2\Base\BaseController;
 use yii\helpers\ArrayHelper;
 
 class RequestController extends BaseController
