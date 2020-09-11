@@ -7,8 +7,8 @@ use yii\helpers\Url;
  * @var \yii\web\View $this
  * @var string        $activeTag
  * @var string        $tag
- * @var \Packages\RestClient\Domain\Entities\BookmarkEntity         $row
- * @var \Packages\RestClient\Domain\Entities\ProjectEntity $projectEntity
+ * @var \ZnBundle\RestClient\Domain\Entities\BookmarkEntity         $row
+ * @var \ZnBundle\RestClient\Domain\Entities\ProjectEntity $projectEntity
  */
 
 $tag = $row->getHash();
@@ -73,7 +73,7 @@ if ($tag === $activeTag) {
 		<?php endif; ?>
     </a>
     <div class="actions">
-		<?php if ($row->getStatus() == \Packages\RestClient\Domain\Enums\StatusEnum::HISTORY): ?>
+		<?php if ($row->getStatus() == \ZnBundle\RestClient\Domain\Enums\StatusEnum::HISTORY): ?>
 			<?= Html::a('&plus;', ['collection/link', 'tag' => $tag], [
 				'data-method' => 'post',
 				'title' => 'Move to collection.',

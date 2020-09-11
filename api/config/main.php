@@ -18,7 +18,7 @@ return [
         //'settings' => 'yii2bundle\settings\api\v1\Module',
         'model' => 'yii2bundle\model\api\v1\Module',
         //'geo' => 'yii2bundle\geo\api\Module',
-        'restclient' => 'Packages\RestClient\Yii\Api\Module',
+        'restclient' => 'ZnBundle\RestClient\Yii\Api\Module',
         'messenger' => 'ZnBundle\Messenger\Yii\Api\Module',
     ],
     'components' => [

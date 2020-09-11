@@ -1,6 +1,6 @@
 <?php
 
-namespace Packages\RestClient\Domain\Interfaces\Repositories;
+namespace ZnBundle\RestClient\Domain\Interfaces\Repositories;
 
 use ZnCore\Domain\Interfaces\Repository\CrudRepositoryInterface;
 

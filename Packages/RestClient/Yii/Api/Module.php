@@ -1,6 +1,6 @@
 <?php
 
-namespace Packages\RestClient\Yii\Api;
+namespace ZnBundle\RestClient\Yii\Api;
 
 use yii\base\Module as YiiModule;
 

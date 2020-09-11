@@ -1,16 +1,16 @@
 <?php
 
-namespace Packages\RestClient\Domain\Services;
+namespace ZnBundle\RestClient\Domain\Services;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
 use ZnCore\Domain\Base\BaseService;
 use ZnCore\Base\Exceptions\NotFoundException;
-use Packages\RestClient\Domain\Entities\ProjectEntity;
-use Packages\RestClient\Domain\Interfaces\Services\AuthorizationServiceInterface;
-use Packages\RestClient\Domain\Interfaces\Services\TransportServiceInterface;
-use Packages\RestClient\Yii\Web\helpers\AdapterHelper;
-use Packages\RestClient\Yii\Web\models\RequestForm;
+use ZnBundle\RestClient\Domain\Entities\ProjectEntity;
+use ZnBundle\RestClient\Domain\Interfaces\Services\AuthorizationServiceInterface;
+use ZnBundle\RestClient\Domain\Interfaces\Services\TransportServiceInterface;
+use ZnBundle\RestClient\Yii\Web\helpers\AdapterHelper;
+use ZnBundle\RestClient\Yii\Web\models\RequestForm;
 use ZnLib\Rest\Contract\Authorization\BearerAuthorization;
 use ZnLib\Rest\Contract\Client\RestClient;
 use Psr\Http\Message\ResponseInterface;

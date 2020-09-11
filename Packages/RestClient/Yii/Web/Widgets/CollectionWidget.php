@@ -1,9 +1,9 @@
 <?php
 
-namespace Packages\RestClient\Yii\Web\Widgets;
+namespace ZnBundle\RestClient\Yii\Web\Widgets;
 
-use Packages\RestClient\Domain\Interfaces\Services\BookmarkServiceInterface;
-use Packages\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
+use ZnBundle\RestClient\Domain\Interfaces\Services\BookmarkServiceInterface;
+use ZnBundle\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
 use Yii;
 use yii\base\Widget;
 

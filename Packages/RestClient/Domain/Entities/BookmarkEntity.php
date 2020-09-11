@@ -1,11 +1,11 @@
 <?php
 
-namespace Packages\RestClient\Domain\Entities;
+namespace ZnBundle\RestClient\Domain\Entities;
 
 use ZnCore\Domain\Interfaces\Entity\EntityIdInterface;
 use ZnCore\Domain\Interfaces\Entity\ValidateEntityInterface;
 use ZnCore\Base\Enums\Http\HttpMethodEnum;
-use Packages\RestClient\Domain\Helpers\BookmarkHelper;
+use ZnBundle\RestClient\Domain\Helpers\BookmarkHelper;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class BookmarkEntity implements ValidateEntityInterface, EntityIdInterface

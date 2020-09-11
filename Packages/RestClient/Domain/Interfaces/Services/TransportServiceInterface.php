@@ -1,10 +1,10 @@
 <?php
 
-namespace Packages\RestClient\Domain\Interfaces\Services;
+namespace ZnBundle\RestClient\Domain\Interfaces\Services;
 
-use Packages\RestClient\Domain\Entities\ProjectEntity;
+use ZnBundle\RestClient\Domain\Entities\ProjectEntity;
 use Psr\Http\Message\ResponseInterface;
-use Packages\RestClient\Yii\Web\models\RequestForm;
+use ZnBundle\RestClient\Yii\Web\models\RequestForm;
 
 interface TransportServiceInterface
 {

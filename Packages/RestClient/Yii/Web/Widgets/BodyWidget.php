@@ -1,10 +1,10 @@
 <?php
 
-namespace Packages\RestClient\Yii\Web\Widgets;
+namespace ZnBundle\RestClient\Yii\Web\Widgets;
 
 use ZnCore\Base\Enums\Http\HttpHeaderEnum;
-use Packages\RestClient\Yii\Web\formatters\RawFormatter;
-use Packages\RestClient\Yii\Web\HighlightAsset;
+use ZnBundle\RestClient\Yii\Web\formatters\RawFormatter;
+use ZnBundle\RestClient\Yii\Web\HighlightAsset;
 use ZnTool\Test\Helpers\RestHelper;
 use ZnLib\Rest\Helpers\RestResponseHelper;
 use yii\base\Widget;

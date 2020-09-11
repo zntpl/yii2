@@ -7,7 +7,7 @@ use yii\helpers\Html;
 
 /**
  * @var \yii\web\View $this
- * @var \Packages\RestClient\Yii\Web\models\ProjectForm $model
+ * @var \ZnBundle\RestClient\Yii\Web\models\ProjectForm $model
  */
 
 ?>

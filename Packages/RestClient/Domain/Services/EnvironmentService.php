@@ -1,9 +1,9 @@
 <?php
 
-namespace Packages\RestClient\Domain\Services;
+namespace ZnBundle\RestClient\Domain\Services;
 
-use Packages\RestClient\Domain\Interfaces\Services\EnvironmentServiceInterface;
-use Packages\RestClient\Domain\Interfaces\Repositories\EnvironmentRepositoryInterface;
+use ZnBundle\RestClient\Domain\Interfaces\Services\EnvironmentServiceInterface;
+use ZnBundle\RestClient\Domain\Interfaces\Repositories\EnvironmentRepositoryInterface;
 use ZnCore\Domain\Base\BaseCrudService;
 use ZnCore\Domain\Libs\Query;
 

@@ -1,12 +1,12 @@
 <?php
 
-namespace Packages\RestClient\Domain\Services;
+namespace ZnBundle\RestClient\Domain\Services;
 
 use Illuminate\Support\Collection;
 use ZnCore\Domain\Base\BaseCrudService;
-use Packages\RestClient\Domain\Entities\AuthorizationEntity;
-use Packages\RestClient\Domain\Interfaces\Repositories\AuthorizationRepositoryInterface;
-use Packages\RestClient\Domain\Interfaces\Services\AuthorizationServiceInterface;
+use ZnBundle\RestClient\Domain\Entities\AuthorizationEntity;
+use ZnBundle\RestClient\Domain\Interfaces\Repositories\AuthorizationRepositoryInterface;
+use ZnBundle\RestClient\Domain\Interfaces\Services\AuthorizationServiceInterface;
 
 class AuthorizationService extends BaseCrudService implements AuthorizationServiceInterface
 {

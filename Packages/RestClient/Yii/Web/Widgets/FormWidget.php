@@ -1,12 +1,12 @@
 <?php
 
-namespace Packages\RestClient\Yii\Web\Widgets;
+namespace ZnBundle\RestClient\Yii\Web\Widgets;
 
-use Packages\RestClient\Domain\Interfaces\Services\AuthorizationServiceInterface;
-use Packages\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
+use ZnBundle\RestClient\Domain\Interfaces\Services\AuthorizationServiceInterface;
+use ZnBundle\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
 use Yii;
 use yii\base\Widget;
-use Packages\RestClient\Domain\Interfaces\Services\EnvironmentServiceInterface;
+use ZnBundle\RestClient\Domain\Interfaces\Services\EnvironmentServiceInterface;
 
 class FormWidget extends Widget
 {

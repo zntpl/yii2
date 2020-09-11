@@ -1,10 +1,10 @@
 <?php
 
-namespace Packages\RestClient\Domain\Interfaces\Services;
+namespace ZnBundle\RestClient\Domain\Interfaces\Services;
 
 use ZnCore\Domain\Interfaces\Service\CrudServiceInterface;
 use ZnCore\Base\Exceptions\NotFoundException;
-use Packages\RestClient\Domain\Entities\ProjectEntity;
+use ZnBundle\RestClient\Domain\Entities\ProjectEntity;
 
 interface ProjectServiceInterface extends CrudServiceInterface
 {

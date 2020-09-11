@@ -1,9 +1,9 @@
 <?php
 
-namespace Packages\RestClient\Yii\Web\helpers;
+namespace ZnBundle\RestClient\Yii\Web\helpers;
 
 use Illuminate\Support\Collection;
-use Packages\RestClient\Domain\Entities\AuthorizationEntity;
+use ZnBundle\RestClient\Domain\Entities\AuthorizationEntity;
 use yii2rails\extension\yii\helpers\ArrayHelper;
 
 class Authorization

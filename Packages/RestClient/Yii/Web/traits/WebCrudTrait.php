@@ -1,6 +1,6 @@
 <?php
 
-namespace Packages\RestClient\Yii\Web\traits;
+namespace ZnBundle\RestClient\Yii\Web\traits;
 
 trait WebCrudTrait
 {

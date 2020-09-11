@@ -1,18 +1,18 @@
 <?php
 
-namespace Packages\RestClient\Yii\Web\controllers;
+namespace ZnBundle\RestClient\Yii\Web\controllers;
 
 use common\enums\rbac\PermissionEnum;
 use kartik\alert\Alert;
 use ZnCore\Domain\Helpers\EntityHelper;
 use ZnCore\Base\Libs\I18Next\Facades\I18Next;
-use Packages\RestClient\Domain\Enums\RestClientPermissionEnum;
-use Packages\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
-use Packages\RestClient\Yii\Web\models\ProjectForm;
+use ZnBundle\RestClient\Domain\Enums\RestClientPermissionEnum;
+use ZnBundle\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
+use ZnBundle\RestClient\Yii\Web\models\ProjectForm;
 use Yii;
 use yii\base\Module;
 use yii2bundle\account\domain\v3\enums\AccountPermissionEnum;
-use Packages\RestClient\Domain\Interfaces\Services\EnvironmentServiceInterface;
+use ZnBundle\RestClient\Domain\Interfaces\Services\EnvironmentServiceInterface;
 
 class ProjectController extends BaseController
 {

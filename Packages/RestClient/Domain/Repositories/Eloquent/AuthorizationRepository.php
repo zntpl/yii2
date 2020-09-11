@@ -1,12 +1,12 @@
 <?php
 
-namespace Packages\RestClient\Domain\Repositories\Eloquent;
+namespace ZnBundle\RestClient\Domain\Repositories\Eloquent;
 
 use Illuminate\Support\Collection;
 use ZnCore\Domain\Libs\Query;
 use ZnCore\Db\Db\Base\BaseEloquentCrudRepository;
-use Packages\RestClient\Domain\Entities\AuthorizationEntity;
-use Packages\RestClient\Domain\Interfaces\Repositories\AuthorizationRepositoryInterface;
+use ZnBundle\RestClient\Domain\Entities\AuthorizationEntity;
+use ZnBundle\RestClient\Domain\Interfaces\Repositories\AuthorizationRepositoryInterface;
 
 class AuthorizationRepository extends BaseEloquentCrudRepository implements AuthorizationRepositoryInterface
 {

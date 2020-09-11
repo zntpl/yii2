@@ -1,11 +1,11 @@
 <?php
 
-namespace Packages\RestClient\Yii\Api\controllers;
+namespace ZnBundle\RestClient\Yii\Api\controllers;
 
-use Packages\RestClient\Domain\Enums\RestClientPermissionEnum;
-use Packages\RestClient\Domain\Interfaces\Services\AccessServiceInterface;
-use Packages\RestClient\Domain\Interfaces\Services\AuthorizationServiceInterface;
-use Packages\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
+use ZnBundle\RestClient\Domain\Enums\RestClientPermissionEnum;
+use ZnBundle\RestClient\Domain\Interfaces\Services\AccessServiceInterface;
+use ZnBundle\RestClient\Domain\Interfaces\Services\AuthorizationServiceInterface;
+use ZnBundle\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
 use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 use yii\base\Module;
 use ZnLib\Rest\Yii2\Base\BaseCrudController;

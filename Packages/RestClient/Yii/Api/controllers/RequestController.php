@@ -1,13 +1,13 @@
 <?php
 
-namespace Packages\RestClient\Yii\Api\controllers;
+namespace ZnBundle\RestClient\Yii\Api\controllers;
 
-use Packages\RestClient\Domain\Entities\ProjectEntity;
-use Packages\RestClient\Domain\Enums\RestClientPermissionEnum;
-use Packages\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
-use Packages\RestClient\Domain\Interfaces\Services\TransportServiceInterface;
-use Packages\RestClient\Yii\Web\helpers\AdapterHelper;
-use Packages\RestClient\Yii\Web\models\RequestForm;
+use ZnBundle\RestClient\Domain\Entities\ProjectEntity;
+use ZnBundle\RestClient\Domain\Enums\RestClientPermissionEnum;
+use ZnBundle\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
+use ZnBundle\RestClient\Domain\Interfaces\Services\TransportServiceInterface;
+use ZnBundle\RestClient\Yii\Web\helpers\AdapterHelper;
+use ZnBundle\RestClient\Yii\Web\models\RequestForm;
 use ZnLib\Rest\Helpers\RestResponseHelper;
 use Yii;
 use yii\base\Module;

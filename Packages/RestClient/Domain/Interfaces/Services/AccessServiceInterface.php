@@ -1,6 +1,6 @@
 <?php
 
-namespace Packages\RestClient\Domain\Interfaces\Services;
+namespace ZnBundle\RestClient\Domain\Interfaces\Services;
 
 use ZnCore\Domain\Interfaces\Service\CrudServiceInterface;
 

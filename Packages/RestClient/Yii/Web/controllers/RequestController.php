@@ -1,22 +1,22 @@
 <?php
 
-namespace Packages\RestClient\Yii\Web\controllers;
+namespace ZnBundle\RestClient\Yii\Web\controllers;
 
 use ZnCore\Base\Enums\Http\HttpHeaderEnum;
 use ZnCore\Base\Helpers\UploadHelper;
 use ZnCore\Base\Libs\I18Next\Interfaces\Services\TranslationServiceInterface;
-use Packages\RestClient\Domain\Entities\BookmarkEntity;
-use Packages\RestClient\Domain\Enums\RestClientPermissionEnum;
-use Packages\RestClient\Domain\Interfaces\Services\BookmarkServiceInterface;
-use Packages\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
-use Packages\RestClient\Domain\Interfaces\Services\TransportServiceInterface;
-use Packages\RestClient\Yii\Web\helpers\AdapterHelper;
-use Packages\RestClient\Yii\Web\models\RequestForm;
+use ZnBundle\RestClient\Domain\Entities\BookmarkEntity;
+use ZnBundle\RestClient\Domain\Enums\RestClientPermissionEnum;
+use ZnBundle\RestClient\Domain\Interfaces\Services\BookmarkServiceInterface;
+use ZnBundle\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
+use ZnBundle\RestClient\Domain\Interfaces\Services\TransportServiceInterface;
+use ZnBundle\RestClient\Yii\Web\helpers\AdapterHelper;
+use ZnBundle\RestClient\Yii\Web\models\RequestForm;
 use ZnTool\Test\Helpers\RestHelper;
 use ZnLib\Rest\Helpers\RestResponseHelper;
 use Yii;
 use yii\base\Module;
-use Packages\RestClient\Domain\Interfaces\Services\EnvironmentServiceInterface;
+use ZnBundle\RestClient\Domain\Interfaces\Services\EnvironmentServiceInterface;
 
 /**
  * Class RequestController
@@ -26,7 +26,7 @@ use Packages\RestClient\Domain\Interfaces\Services\EnvironmentServiceInterface;
 class RequestController extends BaseController
 {
     /**
-     * @var \Packages\RestClient\Yii\Web\Module
+     * @var \ZnBundle\RestClient\Yii\Web\Module
      */
     public $module;
     /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace Packages\RestClient\Domain\Helpers\Postman;
+namespace ZnBundle\RestClient\Domain\Helpers\Postman;
 
 use Yii;
 use yii2rails\extension\web\enums\HttpMethodEnum;

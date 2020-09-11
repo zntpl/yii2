@@ -1,6 +1,6 @@
 <?php
 
-namespace Packages\RestClient\Domain\Entities;
+namespace ZnBundle\RestClient\Domain\Entities;
 
 use ZnCore\Domain\Interfaces\Entity\EntityIdInterface;
 use ZnCore\Domain\Interfaces\Entity\ValidateEntityInterface;

@@ -1,10 +1,10 @@
 <?php
 
-namespace Packages\RestClient\Domain\Interfaces\Repositories;
+namespace ZnBundle\RestClient\Domain\Interfaces\Repositories;
 
 use ZnCore\Domain\Interfaces\Repository\CrudRepositoryInterface;
 use ZnCore\Base\Exceptions\NotFoundException;
-use Packages\RestClient\Domain\Entities\ProjectEntity;
+use ZnBundle\RestClient\Domain\Entities\ProjectEntity;
 
 interface ProjectRepositoryInterface extends CrudRepositoryInterface
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Packages\RestClient\Yii\Web;
+namespace ZnBundle\RestClient\Yii\Web;
 
 use Yii;
-use Packages\RestClient\Domain\Enums\RestClientPermissionEnum;
+use ZnBundle\RestClient\Domain\Enums\RestClientPermissionEnum;
 use yii\filters\AccessControl;
 
 class Module extends \yii\base\Module
@@ -12,9 +12,9 @@ class Module extends \yii\base\Module
     public $defaultRoute = 'request';
 
     public $formatters = [
-        'application/json' => 'Packages\RestClient\Yii\Web\formatters\JsonFormatter',
-        'application/xml' => 'Packages\RestClient\Yii\Web\formatters\XmlFormatter',
-        'text/html' => 'Packages\RestClient\Yii\Web\formatters\HtmlFormatter',
+        'application/json' => 'ZnBundle\RestClient\Yii\Web\formatters\JsonFormatter',
+        'application/xml' => 'ZnBundle\RestClient\Yii\Web\formatters\XmlFormatter',
+        'text/html' => 'ZnBundle\RestClient\Yii\Web\formatters\HtmlFormatter',
     ];
 
     public function behaviors()

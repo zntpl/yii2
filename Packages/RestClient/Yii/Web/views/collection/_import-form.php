@@ -3,7 +3,7 @@ use yii\bootstrap\ActiveForm;
 
 /**
  * @var \yii\web\View $this
- * @var \Packages\RestClient\Yii\Web\models\ImportForm $model
+ * @var \ZnBundle\RestClient\Yii\Web\models\ImportForm $model
  * @var ActiveForm $form
  */
 ?>

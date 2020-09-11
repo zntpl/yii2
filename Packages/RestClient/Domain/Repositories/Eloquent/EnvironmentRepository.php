@@ -1,10 +1,10 @@
 <?php
 
-namespace Packages\RestClient\Domain\Repositories\Eloquent;
+namespace ZnBundle\RestClient\Domain\Repositories\Eloquent;
 
 use ZnCore\Db\Db\Base\BaseEloquentCrudRepository;
-use Packages\RestClient\Domain\Entities\EnvironmentEntity;
-use Packages\RestClient\Domain\Interfaces\Repositories\EnvironmentRepositoryInterface;
+use ZnBundle\RestClient\Domain\Entities\EnvironmentEntity;
+use ZnBundle\RestClient\Domain\Interfaces\Repositories\EnvironmentRepositoryInterface;
 
 class EnvironmentRepository extends BaseEloquentCrudRepository implements EnvironmentRepositoryInterface
 {

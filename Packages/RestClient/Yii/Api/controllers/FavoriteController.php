@@ -1,10 +1,10 @@
 <?php
 
-namespace Packages\RestClient\Yii\Api\controllers;
+namespace ZnBundle\RestClient\Yii\Api\controllers;
 
-use Packages\RestClient\Domain\Enums\RestClientPermissionEnum;
-use Packages\RestClient\Domain\Interfaces\Services\BookmarkServiceInterface;
-use Packages\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
+use ZnBundle\RestClient\Domain\Enums\RestClientPermissionEnum;
+use ZnBundle\RestClient\Domain\Interfaces\Services\BookmarkServiceInterface;
+use ZnBundle\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
 use yii\base\Module;
 use ZnLib\Rest\Yii2\Base\BaseCrudController;
 

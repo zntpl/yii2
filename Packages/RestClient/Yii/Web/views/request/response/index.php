@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\web\Response;
-use Packages\RestClient\Yii\Web\Widgets\BodyWidget;
+use ZnBundle\RestClient\Yii\Web\Widgets\BodyWidget;
 
 /**
  * @var \yii\web\View $this

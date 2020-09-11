@@ -1,6 +1,6 @@
 <?php
 
-namespace Packages\RestClient\Yii\Web\models;
+namespace ZnBundle\RestClient\Yii\Web\models;
 
 use ZnCore\Base\Libs\I18Next\Facades\I18Next;
 use yii\base\Model;

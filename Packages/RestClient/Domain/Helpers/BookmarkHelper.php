@@ -1,13 +1,13 @@
 <?php
 
-namespace Packages\RestClient\Domain\Helpers;
+namespace ZnBundle\RestClient\Domain\Helpers;
 
 use ZnCrypt\Base\Domain\Enums\HashAlgoEnum;
 use ZnCrypt\Base\Domain\Helpers\SafeBase64Helper;
 use ZnCore\Db\Db\Helpers\Manager;
-use Packages\RestClient\Domain\Entities\BookmarkEntity;
-use Packages\RestClient\Domain\Repositories\Eloquent\BookmarkRepository;
-use Packages\RestClient\Domain\Services\BookmarkService;
+use ZnBundle\RestClient\Domain\Entities\BookmarkEntity;
+use ZnBundle\RestClient\Domain\Repositories\Eloquent\BookmarkRepository;
+use ZnBundle\RestClient\Domain\Services\BookmarkService;
 
 class BookmarkHelper
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Packages\RestClient\Yii\Web\models;
+namespace ZnBundle\RestClient\Yii\Web\models;
 
 use yii\base\Model;
 use yii\validators\Validator;

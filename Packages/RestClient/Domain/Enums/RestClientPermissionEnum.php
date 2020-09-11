@@ -1,6 +1,6 @@
 <?php
 
-namespace Packages\RestClient\Domain\Enums;
+namespace ZnBundle\RestClient\Domain\Enums;
 
 use ZnCore\Domain\Base\BaseEnum;
 

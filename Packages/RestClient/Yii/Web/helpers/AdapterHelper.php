@@ -1,12 +1,12 @@
 <?php
 
-namespace Packages\RestClient\Yii\Web\helpers;
+namespace ZnBundle\RestClient\Yii\Web\helpers;
 
 use ZnCore\Domain\Helpers\EntityHelper;
-use Packages\RestClient\Domain\Entities\BookmarkEntity;
+use ZnBundle\RestClient\Domain\Entities\BookmarkEntity;
 use yii\base\Model;
 use yii2bundle\rest\domain\entities\RequestEntity;
-use Packages\RestClient\Yii\Web\models\RequestForm;
+use ZnBundle\RestClient\Yii\Web\models\RequestForm;
 use GuzzleHttp\Psr7\Response;
 
 class AdapterHelper

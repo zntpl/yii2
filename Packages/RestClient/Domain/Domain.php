@@ -1,6 +1,6 @@
 <?php
 
-namespace Packages\RestClient\Domain;
+namespace ZnBundle\RestClient\Domain;
 
 use ZnCore\Domain\Interfaces\DomainInterface;
 

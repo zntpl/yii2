@@ -7,8 +7,8 @@ use yii\helpers\Html;
 
 /**
  * @var \yii\web\View $this
- * @var \Packages\RestClient\Domain\Entities\ProjectEntity $projectEntity
- * @var \Packages\RestClient\Domain\Entities\EnvironmentEntity[] | \Illuminate\Support\Collection $environmentCollection
+ * @var \ZnBundle\RestClient\Domain\Entities\ProjectEntity $projectEntity
+ * @var \ZnBundle\RestClient\Domain\Entities\EnvironmentEntity[] | \Illuminate\Support\Collection $environmentCollection
  */
 
 $this->title = $projectEntity->getTitle();

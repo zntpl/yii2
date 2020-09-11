@@ -1,13 +1,13 @@
 <?php
 
-namespace Packages\RestClient\Domain\Repositories\Eloquent;
+namespace ZnBundle\RestClient\Domain\Repositories\Eloquent;
 
 use Illuminate\Support\Collection;
 use ZnCore\Domain\Libs\Query;
 use ZnCore\Db\Db\Base\BaseEloquentCrudRepository;
-use Packages\RestClient\Domain\Entities\BookmarkEntity;
-use Packages\RestClient\Domain\Enums\StatusEnum;
-use Packages\RestClient\Domain\Interfaces\Repositories\BookmarkRepositoryInterface;
+use ZnBundle\RestClient\Domain\Entities\BookmarkEntity;
+use ZnBundle\RestClient\Domain\Enums\StatusEnum;
+use ZnBundle\RestClient\Domain\Interfaces\Repositories\BookmarkRepositoryInterface;
 
 class BookmarkRepository extends BaseEloquentCrudRepository implements BookmarkRepositoryInterface
 {

@@ -1,22 +1,22 @@
 <?php
 
-namespace Packages\RestClient\Yii\Web\controllers;
+namespace ZnBundle\RestClient\Yii\Web\controllers;
 
 use kartik\alert\Alert;
 use Packages\User\Domain\Interfaces\Services\IdentityServiceInterface;
 use ZnCore\Domain\Exceptions\UnprocessibleEntityException;
 use ZnCore\Domain\Helpers\EntityHelper;
 use ZnCore\Base\Libs\I18Next\Facades\I18Next;
-use Packages\RestClient\Domain\Enums\RestClientPermissionEnum;
-use Packages\RestClient\Domain\Interfaces\Services\AccessServiceInterface;
-use Packages\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
-use Packages\RestClient\Yii\Web\models\EnvironmentForm;
+use ZnBundle\RestClient\Domain\Enums\RestClientPermissionEnum;
+use ZnBundle\RestClient\Domain\Interfaces\Services\AccessServiceInterface;
+use ZnBundle\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
+use ZnBundle\RestClient\Yii\Web\models\EnvironmentForm;
 use Yii;
 use yii\base\Module;
 use yii2bundle\account\domain\v3\enums\AccountPermissionEnum;
 use yii2rails\domain\base\Model;
 use yii2rails\domain\exceptions\UnprocessableEntityHttpException;
-use Packages\RestClient\Domain\Interfaces\Services\EnvironmentServiceInterface;
+use ZnBundle\RestClient\Domain\Interfaces\Services\EnvironmentServiceInterface;
 use ZnSandbox\Sandbox\Web\Yii2\Helpers\ErrorHelper;
 
 class EnvironmentController extends BaseController

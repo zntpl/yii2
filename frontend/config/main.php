@@ -11,7 +11,7 @@ return [
         'error' => 'yii2bundle\error\module\Module',
         'user' => 'yii2bundle\account\module\Module',
         'storage' => 'yubundle\storage\web\Module',
-        'rest-client' => 'Packages\RestClient\Yii\Web\Module',
+        'rest-client' => 'ZnBundle\RestClient\Yii\Web\Module',
         'dashboard' => 'yii2bundle\dashboard\web\Module',
     ],
     'components' => [

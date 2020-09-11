@@ -1,12 +1,12 @@
 <?php
 
-namespace Packages\RestClient\Domain\Interfaces\Services;
+namespace ZnBundle\RestClient\Domain\Interfaces\Services;
 
 use Illuminate\Support\Collection;
 use ZnCore\Domain\Exceptions\UnprocessibleEntityException;
 use ZnCore\Domain\Interfaces\Service\CrudServiceInterface;
 use ZnCore\Base\Exceptions\NotFoundException;
-use Packages\RestClient\Domain\Entities\BookmarkEntity;
+use ZnBundle\RestClient\Domain\Entities\BookmarkEntity;
 
 interface BookmarkServiceInterface extends CrudServiceInterface
 {

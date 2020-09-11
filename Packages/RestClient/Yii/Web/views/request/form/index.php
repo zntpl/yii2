@@ -2,14 +2,14 @@
 
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
-use Packages\RestClient\Yii\Web\models\RequestForm;
-use Packages\RestClient\Yii\Web\helpers\Authorization;
+use ZnBundle\RestClient\Yii\Web\models\RequestForm;
+use ZnBundle\RestClient\Yii\Web\helpers\Authorization;
 
 /**
  * @var \yii\web\View $this
  * @var RequestForm $model
  * @var ActiveForm $form
- * @var \Packages\RestClient\Domain\Entities\ProjectEntity $projectEntity
+ * @var \ZnBundle\RestClient\Domain\Entities\ProjectEntity $projectEntity
  * @var \Illuminate\Support\Collection $environmentCollection
  */
 

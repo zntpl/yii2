@@ -1,8 +1,8 @@
 <?php
 
-namespace Packages\RestClient\Domain\Helpers\Postman;
+namespace ZnBundle\RestClient\Domain\Helpers\Postman;
 
-use Packages\RestClient\Domain\Entities\BookmarkEntity;
+use ZnBundle\RestClient\Domain\Entities\BookmarkEntity;
 use yii\helpers\Json;
 use yii\web\ServerErrorHttpException;
 use yii2rails\extension\common\helpers\StringHelper;

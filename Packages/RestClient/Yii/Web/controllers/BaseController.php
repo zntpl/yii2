@@ -1,10 +1,10 @@
 <?php
 
-namespace Packages\RestClient\Yii\Web\controllers;
+namespace ZnBundle\RestClient\Yii\Web\controllers;
 
 use ZnCore\Base\Exceptions\NotFoundException;
-use Packages\RestClient\Domain\Entities\ProjectEntity;
-use Packages\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
+use ZnBundle\RestClient\Domain\Entities\ProjectEntity;
+use ZnBundle\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
 use Yii;
 use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;

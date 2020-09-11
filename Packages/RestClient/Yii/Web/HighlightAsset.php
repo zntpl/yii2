@@ -1,6 +1,6 @@
 <?php
 
-namespace Packages\RestClient\Yii\Web;
+namespace ZnBundle\RestClient\Yii\Web;
 
 use yii\web\AssetBundle;
 

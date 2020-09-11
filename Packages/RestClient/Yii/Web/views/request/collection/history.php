@@ -5,7 +5,7 @@ use yii\helpers\Html;
  * @var \yii\web\View $this
  * @var string $activeTag
  * @var array $items
- * @var \Packages\RestClient\Domain\Entities\ProjectEntity $projectEntity
+ * @var \ZnBundle\RestClient\Domain\Entities\ProjectEntity $projectEntity
  */
 ?>
 <div class="rest-request-history">

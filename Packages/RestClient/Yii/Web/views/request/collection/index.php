@@ -2,14 +2,14 @@
 
 use ZnCore\Domain\Helpers\EntityHelper;
 use yii\helpers\Html;
-use Packages\RestClient\Domain\Helpers\Postman\PostmanHelper;
-use Packages\RestClient\Yii\Web\helpers\CollectionHelper;
+use ZnBundle\RestClient\Domain\Helpers\Postman\PostmanHelper;
+use ZnBundle\RestClient\Yii\Web\helpers\CollectionHelper;
 
 /**
  * @var \yii\web\View $this
  * @var string $activeTag
  * @var array $items
- * @var \Packages\RestClient\Domain\Entities\ProjectEntity $projectEntity
+ * @var \ZnBundle\RestClient\Domain\Entities\ProjectEntity $projectEntity
  */
 
 ?>

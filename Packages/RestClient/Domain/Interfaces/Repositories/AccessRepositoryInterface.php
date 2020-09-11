@@ -1,11 +1,11 @@
 <?php
 
-namespace Packages\RestClient\Domain\Interfaces\Repositories;
+namespace ZnBundle\RestClient\Domain\Interfaces\Repositories;
 
 use Illuminate\Support\Collection;
 use ZnCore\Domain\Interfaces\Repository\CrudRepositoryInterface;
 use ZnCore\Base\Exceptions\NotFoundException;
-use Packages\RestClient\Domain\Entities\AccessEntity;
+use ZnBundle\RestClient\Domain\Entities\AccessEntity;
 
 interface AccessRepositoryInterface extends CrudRepositoryInterface
 {

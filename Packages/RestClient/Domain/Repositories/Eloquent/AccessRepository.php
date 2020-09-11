@@ -1,12 +1,12 @@
 <?php
 
-namespace Packages\RestClient\Domain\Repositories\Eloquent;
+namespace ZnBundle\RestClient\Domain\Repositories\Eloquent;
 
 use Illuminate\Support\Collection;
 use ZnCore\Domain\Libs\Query;
 use ZnCore\Db\Db\Base\BaseEloquentCrudRepository;
-use Packages\RestClient\Domain\Entities\AccessEntity;
-use Packages\RestClient\Domain\Interfaces\Repositories\AccessRepositoryInterface;
+use ZnBundle\RestClient\Domain\Entities\AccessEntity;
+use ZnBundle\RestClient\Domain\Interfaces\Repositories\AccessRepositoryInterface;
 
 class AccessRepository extends BaseEloquentCrudRepository implements AccessRepositoryInterface
 {

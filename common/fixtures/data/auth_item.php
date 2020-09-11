@@ -8,7 +8,7 @@ use common\enums\rbac\RoleEnum;
 //use Packages\Product\Domain\Enums\ComplexPermissionEnum;
 use ZnCore\Domain\Base\BaseEnum;
 //use ZnSandbox\Sandbox\Reference\Enums\ReferenceBookPermissionEnum;
-use Packages\RestClient\Domain\Enums\RestClientPermissionEnum;
+use ZnBundle\RestClient\Domain\Enums\RestClientPermissionEnum;
 use yii\test\Fixture;
 use yii2bundle\account\domain\v3\enums\AccountPermissionEnum;
 use yii2bundle\geo\domain\enums\GeoPermissionEnum;

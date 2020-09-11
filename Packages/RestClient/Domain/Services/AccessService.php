@@ -1,9 +1,9 @@
 <?php
 
-namespace Packages\RestClient\Domain\Services;
+namespace ZnBundle\RestClient\Domain\Services;
 
-use Packages\RestClient\Domain\Interfaces\Repositories\AccessRepositoryInterface;
-use Packages\RestClient\Domain\Interfaces\Services\AccessServiceInterface;
+use ZnBundle\RestClient\Domain\Interfaces\Repositories\AccessRepositoryInterface;
+use ZnBundle\RestClient\Domain\Interfaces\Services\AccessServiceInterface;
 use ZnCore\Domain\Base\BaseCrudService;
 
 class AccessService extends BaseCrudService implements AccessServiceInterface

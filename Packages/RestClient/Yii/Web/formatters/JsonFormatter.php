@@ -1,6 +1,6 @@
 <?php
 
-namespace Packages\RestClient\Yii\Web\formatters;
+namespace ZnBundle\RestClient\Yii\Web\formatters;
 
 use yii\base\InvalidArgumentException;
 use yii\helpers\Json;
