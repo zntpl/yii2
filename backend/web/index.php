@@ -1,8 +1,8 @@
 <?php
 
-use ZnSandbox\Sandbox\App\Kernel;
-use ZnSandbox\Sandbox\App\Loader\AdvancedLoader;
-use ZnSandbox\Sandbox\App\Rails;
+use ZnSandbox\Sandbox\Yii2\App\Kernel;
+use ZnSandbox\Sandbox\Yii2\App\Loader\AdvancedLoader;
+use ZnSandbox\Sandbox\Yii2\App\Rails;
 
 require __DIR__ . '/../../vendor/autoload.php';
 ZnCore\Base\Libs\Env\DotEnvHelper::init(__DIR__ . '/../..');

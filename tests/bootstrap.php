@@ -1,8 +1,8 @@
 <?php
 
-use ZnSandbox\Sandbox\App\Kernel;
-use ZnSandbox\Sandbox\App\Loader\AdvancedLoader;
-use ZnSandbox\Sandbox\App\Rails;
+use ZnSandbox\Sandbox\Yii2\App\Kernel;
+use ZnSandbox\Sandbox\Yii2\App\Loader\AdvancedLoader;
+use ZnSandbox\Sandbox\Yii2\App\Rails;
 
 $_ENV['APP_ENV'] = 'test';
 ZnCore\Base\Libs\Env\DotEnvHelper::init();

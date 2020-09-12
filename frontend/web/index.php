@@ -6,9 +6,9 @@ ini_set('display_errors', 1);
 use ZnCore\Base\Legacy\Yii\Helpers\FileHelper;
 use ZnTool\Dev\Runtime\Domain\Helpers\Benchmark;
 use ZnLib\Rest\Helpers\CorsHelper;
-use ZnSandbox\Sandbox\App\Kernel;
-use ZnSandbox\Sandbox\App\Loader\AdvancedLoader;
-use ZnSandbox\Sandbox\App\Rails;
+use ZnSandbox\Sandbox\Yii2\App\Kernel;
+use ZnSandbox\Sandbox\Yii2\App\Loader\AdvancedLoader;
+use ZnSandbox\Sandbox\Yii2\App\Rails;
 
 require __DIR__ . '/../../vendor/autoload.php';
 //require_once __DIR__ . '/../../common/Bootstrap/autoload.php';

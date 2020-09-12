@@ -14,9 +14,9 @@ use yii2bundle\account\domain\v3\enums\AccountPermissionEnum;
 use yii2bundle\geo\domain\enums\GeoPermissionEnum;
 use yii2bundle\rbac\domain\enums\RbacPermissionEnum;
 use ZnCore\Base\Legacy\Yii\Helpers\FileHelper;
-use ZnSandbox\Sandbox\App\Kernel;
-use ZnSandbox\Sandbox\App\Loader\AdvancedLoader;
-use ZnSandbox\Sandbox\App\Rails;
+use ZnSandbox\Sandbox\Yii2\App\Kernel;
+use ZnSandbox\Sandbox\Yii2\App\Loader\AdvancedLoader;
+use ZnSandbox\Sandbox\Yii2\App\Rails;
 
 $_ENV['PROJECT_DIR'] = realpath(__DIR__ . '/../../..');
 $_ENV['APP_DIR'] = realpath(__DIR__ . '/../../..');
