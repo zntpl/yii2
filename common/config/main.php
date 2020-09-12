@@ -33,7 +33,7 @@ return [
             'identityClass' => 'yii2bundle\account\domain\v3\entities\LoginEntity',
         ],
         'db' => [
-            'class' => 'RocketLab\Bundle\App\Components\Connection',
+            'class' => 'ZnSandbox\Sandbox\Yii2\Components\Connection',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
