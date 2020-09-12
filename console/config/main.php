@@ -14,7 +14,7 @@ return [
             'namespace' => 'common\fixtures',
         ],
         'migrate' => [
-            'class' => 'yii2tool\deeMigrate\MigrateController',
+            'class' => 'ZnSandbox\Sandbox\Yii2\DeeMigrate\MigrateController',
             'migrationPath' => '@common/migrations',
             //'migrationNamespaces' => ['Da\\User\\Migration'],
             'migrationLookup' => [

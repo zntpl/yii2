@@ -46,7 +46,7 @@ $this->registerJs('toastr.options = {"positionClass": "toast-bottom-left"};');
     } else {
         $menuItems[] = ['label' => 'API', 'url' => ['/rest']];
         $menuItems[] = '<li>'
-            . Html::beginForm(['/site/logout'], 'post')
+            . Html::beginForm(['/user/auth/logout'], 'post')
             . Html::submitButton(
                 'Logout (' . Yii::$app->user->identity->username . ')',
                 ['class' => 'btn btn-link logout']

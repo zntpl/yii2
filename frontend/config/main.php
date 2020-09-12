@@ -12,7 +12,7 @@ return [
         'user' => 'yii2bundle\account\module\Module',
         'storage' => 'yubundle\storage\web\Module',
         'rest-client' => 'ZnTool\RestClient\Yii\Web\Module',
-        'dashboard' => 'yii2bundle\dashboard\web\Module',
+        'dashboard' => 'ZnSandbox\Sandbox\Dashboard\Yii2\Web\Module',
     ],
     'components' => [
         'request' => [
