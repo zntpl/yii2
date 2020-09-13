@@ -1,7 +1,7 @@
 <?php
 
 $definitions = [
-    'ZnSandbox\Sandbox\Dashboard\Domain\Interfaces\Services\DocServiceInterface' => 'ZnSandbox\Sandbox\Dashboard\Domain\Services\DocService',
+    'ZnBundle\Dashboard\Domain\Interfaces\Services\DocServiceInterface' => 'ZnBundle\Dashboard\Domain\Services\DocService',
 ];
 
 $definitions = array_merge($definitions, require(__DIR__ . '/../../Packages/RestClient/Domain/config/container.php'));

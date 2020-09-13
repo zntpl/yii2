@@ -10,6 +10,6 @@ return [
         'storage' => 'vendor/znsandbox/sandbox/src/YiiLegacy/yubundle/storage/domain/v1/i18next/__lng__/__ns__.json',
         'restclient' => 'Packages/RestClient/Domain/i18next/__lng__/__ns__.json',
         'core' => 'vendor/zncore/base/src/i18next/__lng__/__ns__.json',
-        'dashboard' => 'vendor/znsandbox/sandbox/src/Dashboard/Domain/i18next/__lng__/__ns__.json',
+        'dashboard' => 'vendor/znbundle/dashboard/src/Domain/i18next/__lng__/__ns__.json',
     ],
 ];

@@ -6,7 +6,7 @@ return [
     'controllerNamespace' => 'api\controllers',
     'bootstrap' => ['log'],
     'modules' => [
-        'dashboard' => 'ZnSandbox\Sandbox\Dashboard\Yii2\Api\Module',
+        'dashboard' => 'ZnBundle\Dashboard\Yii2\Api\Module',
         'account' => 'yii2bundle\account\api\v3\Module',
         'user' => 'yubundle\user\api\v1\Module',
         'notify' => 'yii2bundle\notify\api\Module',
